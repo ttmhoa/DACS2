@@ -2,9 +2,9 @@
 class DB {
     public $con;
     public $local = 'localhost';
-    public $resource = 'root';
-    public $pass = ''; // Make sure this is correct
-    public $namePJ = 'duanphp'; // Ensure this database exists
+    public $resource = 'sa';
+    public $pass = '123'; // Make sure this is correct
+    public $namePJ = 'banhang'; // Ensure this database exists
 
     function __construct() {
         // Attempt to connect to the database
