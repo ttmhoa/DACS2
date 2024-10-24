@@ -66,7 +66,7 @@
                 <li><a href="/shopcontroller">Shop</a></li>
                 <li><a href="/Hom">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="/shopdetailcontroller">Shop Details</a></li>
+                        <li><a href="/shopdetailcontrolle">Shop Details</a></li>
                         <li><a href="/shopCardcontroller">Shoping Cart</a></li>
                         <li><a href="/checkoutcontroller">Check Out</a></li>
                         <li><a href="/blogDetailcontroller">Blog Details</a></li>
