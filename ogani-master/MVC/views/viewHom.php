@@ -14,10 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-<<<<<<< HEAD
-     
-=======
->>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
     <link rel="stylesheet" href="/ogani-master/public/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/elegant-icons.css" type="text/css">
@@ -26,7 +22,7 @@
     <link rel="stylesheet" href="/ogani-master/public/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/style.css" type="text/css">
-<<<<<<< HEAD
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <!-- jQuery -->
     <script type="text/javascript">
@@ -51,8 +47,7 @@
         });
     </script>
     
-=======
->>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
+
 </head>
 
 <body>
