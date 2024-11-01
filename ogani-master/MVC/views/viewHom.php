@@ -14,7 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
+<<<<<<< HEAD
      
+=======
+>>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
     <link rel="stylesheet" href="/ogani-master/public/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/elegant-icons.css" type="text/css">
@@ -23,6 +26,7 @@
     <link rel="stylesheet" href="/ogani-master/public/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/style.css" type="text/css">
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <!-- jQuery -->
     <script type="text/javascript">
@@ -47,6 +51,8 @@
         });
     </script>
     
+=======
+>>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
 </head>
 
 <body>
@@ -104,7 +110,7 @@
             <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            <a href="/ratingController.php/ratingNo"><i class="fa fa-pinterest-p"></i></a>
         </div>
         <div class="humberger__menu__contact">
             <ul>
@@ -134,7 +140,7 @@
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="/ratingController/ratingNo"><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__language">
                                 <img src="#" alt="">
@@ -247,8 +253,11 @@
             </div>
         </div>
     </footer>
+<<<<<<< HEAD
 
  
+=======
+>>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
@@ -260,7 +269,10 @@
     <script src="/ogani-master/public/js/mixitup.min.js"></script>
     <script src="/ogani-master/public/js/owl.carousel.min.js"></script>
     <script src="/ogani-master/public/js/main.js"></script>
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+=======
+>>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
 </body>
 
 </html>

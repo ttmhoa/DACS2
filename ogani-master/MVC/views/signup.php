@@ -34,84 +34,102 @@
         <div class="container">
             <div class="header-top sticky">
 
-            <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="#"><img src="/ogani-master/img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="/Hom">Home</a></li>
-                            <li><a href="/shopcontroller">Shop</a></li>
-                            <li><a href="/Hom">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="/shopdetailcontroller">Shop Details</a></li>
-                                    <li><a href="/shopCardcontroller">Shoping Cart</a></li>
-                                    <li><a href="/checkoutcontroller">Check Out</a></li>
-                                    <li><a href="/blogDetailcontroller">Blog Details</a></li>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="header__logo">
+                                <a href="#"><img src="/ogani-master/img/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <nav class="header__menu">
+                                <ul>
+                                    <li class="active"><a href="/Hom">Home</a></li>
+                                    <li><a href="/shopcontroller">Shop</a></li>
+                                    <li><a href="/Hom">Pages</a>
+                                        <ul class="header__menu__dropdown">
+                                            <li><a href="/shopdetailcontroller">Shop Details</a></li>
+                                            <li><a href="/shopCardcontroller">Shoping Cart</a></li>
+                                            <li><a href="/checkoutcontroller">Check Out</a></li>
+                                            <li><a href="/blogDetailcontroller">Blog Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/blogcontroller">Blog</a></li>
+                                    <li><a href="/contactcontroller">Contact</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="/blogcontroller">Blog</a></li>
-                            <li><a href="/contactcontroller">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                            </nav>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="header__cart">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                                    <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                                </ul>
+                                <div class="header__cart__price">item: <span>$150.00</span></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="humberger__open">
+                        <i class="fa fa-bars"></i>
+                    </div>
+    </header>
+    <div class="signup-container">
+        <h2>Tạo tài khoản mới</h2>
+        <form id="signup-form" method="POST">
+            <div>
+                <label for="fullname">Họ và tên</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Họ và tên" required>
             </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-</header>
-        </div>
-            <div class="signup-container">
-                <h2>Tạo tài khoản mới</h2>
-                <form id="signup-form" action="#">
-                    <input type="text" id="new-username" placeholder="Tên đăng nhập" required>
-                    <input type="password" id="new-password" placeholder="Mật khẩu" required>
-                    <input type="password" id="confirm-password" placeholder="Xác nhận mật khẩu" required>
-                    <input type="submit" value="Đăng ký">
-                </form>
-                <div id="success-message" class="success-message"></div>
-                <div class="login-link">
-                    <p>Đã có tài khoản? <a href="./dangnhap.html">Đăng nhập ngay</a></p>
-                </div>
-            </div>
-            <!-- =========Sử dụng js để đăng ký tài khoản-->
-            <script>
-                document.getElementById("signup-form").addEventListener("submit", function(event) {
-                    event.preventDefault();
-                    var newUsername = document.getElementById("new-username").value;
-                    var newPassword = document.getElementById("new-password").value;
-                    var confirmPassword = document.getElementById("confirm-password").value;
-                    var successMessage = document.getElementById("success-message");
 
-                    // Kiểm tra xác nhận mật khẩu
-                    if (newPassword !== confirmPassword) {
-                        successMessage.textContent = "Mật khẩu xác nhận không khớp!";
-                        return;
-                    }
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
 
-                    setTimeout(function() {
-                        successMessage.textContent = "Tạo tài khoản thành công!";
-                        alert("Tài khoản được đăng ký thành công");
-                        setTimeout(function() {
-                            window.location.href = "trangchu.html";
-                        }, 2000); // Chuyển hướng sau 2 giây
-                    }, 1000);
-                });
-            </script>
-        </div>
+            <div>
+                <label for="phone_number">Số điện thoại</label>
+                <input type="text" id="phone_number" name="phone_number" placeholder="Số điện thoại" required>
+            </div>
+
+            <div>
+                <label for="address">Địa chỉ</label>
+                <input type="text" id="address" name="address" placeholder="Địa chỉ" required>
+            </div>
+
+            <div>
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
+            </div>
+
+            <div>
+                <label for="confirm-password">Xác nhận mật khẩu</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Xác nhận mật khẩu" required>
+            </div>
+
+            <div>
+                <label for="role_id">Chọn vai trò</label>
+                <select id="role_id" name="role_id" required>
+                    <option value="">Chọn vai trò</option>
+                    <option value="1">Admin</option>
+                    <option value="2">User</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="submit" value="Đăng ký">
+            </div>
+        </form>
+        <div id="error-message" style="display: none;"></div>
+    </div>
+    <!-- <div id="error-message" style="display: none;"></div> -->
+    <div id="success-message" class="success-message"></div>
+    <div class="login-link">
+        <p>Đã có tài khoản? <a href="./dangnhap.html">Đăng nhập ngay</a></p>
+    </div>
+    </div>
+
+    </div>
+    </div>
 
     <!-- Tablet/mobile header -->
     <footer class="footer spad">
@@ -170,9 +188,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>
+                                    document.write(new Date().getFullYear());
+                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
                         <div class="footer__copyright__payment"><img src="/ogani-master/img/payment-item.png" alt=""></div>
                     </div>
                 </div>
@@ -188,8 +210,56 @@
     <script src="/ogani-master/public/js/mixitup.min.js"></script>
     <script src="/ogani-master/public/js/owl.carousel.min.js"></script>
     <script src="/ogani-master/public/js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#signup-form").on("submit", function(e) {
+                e.preventDefault();
+                var username = $("#fullname").val();
+                var phone_number = $("#phone_number").val();
+                var email = $("#email").val();
+                var confirm_password = $("#confirm-password").val();
+                var password = $("#password").val();
+                var address = $("#address").val();
+                var role_id = $("#role_id").val();
 
-</body>
+                $.ajax({
+                    url: '/loginController/signup',
+                    method: 'POST',
+                    data: {
+                        fullname: username, 
+                        password: password,
+                        email: email,
+                        confirm: confirm_password, 
+                        phone_number: phone_number,
+                        address: address,
+                        role_id: role_id 
+                    },
+                    success: function(response) {
+                        console.log(response); 
 
+                        if (response.status === 'success') {
+                            $("#error-message").css("color", "green").text(response.message).show();
+                            window.location.href = '/ogani-master/MVC/views/login.php'; 
+                        } else {
+                            $("#error-message").css("color", "red").text(response.message).show();
+                        }
+                        setTimeout(function() {
+                            $("#error-message").fadeOut();
+                        }, 2000);
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText); 
+                        try {
+                            var response = JSON.parse(xhr.responseText); 
+                            // Hiển thị lỗi
+                            $("#error-message").css("color", "red").text(response.message).show();
+                        } catch (e) {
+                            $("#error-message").css("color", "red").text("Có lỗi xảy ra, vui lòng thử lại.").show();
+                        }
+                    }
+                });
+            });
+        }); 
+        </script> 
+  </body> 
 </html>
-<!-- max layout -->
