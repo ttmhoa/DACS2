@@ -21,6 +21,32 @@
     <link rel="stylesheet" href="/ogani-master/public/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/style.css" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <!-- jQuery -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var action = "search";
+
+            $("#search_name").keyup(function() {
+                var search = $("#search_name").val();
+                $.ajax({
+                    url: "/shopcontroller/search",
+                    method: "POST",
+                    data: {
+                        action: action,
+                        search_name: search
+                    },
+                    success: function(data) {
+                        $("#output_search").html(data);
+                    }
+                });
+                console.log(action);
+            });
+        });
+    </script>
+    
+
 </head>
 
 <body>
@@ -44,6 +70,7 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
+                
                 <img src="/ogani-master/img/language.png" alt="">
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
@@ -248,6 +275,11 @@
             </div>
         </div>
     </footer>
+<<<<<<< HEAD
+
+ 
+=======
+>>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
@@ -259,6 +291,10 @@
     <script src="/ogani-master/public/js/mixitup.min.js"></script>
     <script src="/ogani-master/public/js/owl.carousel.min.js"></script>
     <script src="/ogani-master/public/js/main.js"></script>
+<<<<<<< HEAD
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+=======
+>>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
 </body>
 
 </html>
