@@ -17,7 +17,7 @@
 
     <!-- Tab điều hướng -->
     <div class="tab-container">
-        <a href="/ogani-master/MVC/views/rating/myRatingno.php">Chưa đánh giá</a>
+        <a href="/ratingController/ratingNo">Chưa đánh giá</a>
         <a href="/ogani-master/MVC/views/rating/myRatingyes.php" class="active">Đã đánh giá</a>
     </div>
 

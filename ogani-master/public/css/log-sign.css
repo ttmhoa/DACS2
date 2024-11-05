@@ -67,7 +67,7 @@
 .signup-container {
     max-width: 500px; /* Tăng chiều rộng tối đa của form */
     margin: 100px auto; /* Điều chỉnh margin để form không quá xa phía trên */
-    padding: 40px; /* Tăng padding để form cao hơn */
+    padding: 30px; /* Tăng padding để form cao hơn */
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
@@ -77,9 +77,24 @@
     text-align: center;
     margin-bottom: 20px;
 }
-
+input[type="email"] {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+#error-message {
+    margin: 10px 0; /* Thêm khoảng cách phía trên và dưới */
+    text-align: center; /* Căn giữa nội dung */
+    color: red; /* Màu sắc cho thông báo lỗi (có thể điều chỉnh) */
+    font-weight: bold; /* Để thông báo nổi bật hơn */
+}
 .signup-container input[type="text"],
-.signup-container input[type="password"] {
+.signup-container input[type="email"],
+.signup-container input[type="password"],
+.signup-container input[type="tel"],
+.signup-container input[type="address"] {
     width: 100%;
     padding: 15px; /* Tăng padding để input lớn hơn */
     margin-bottom: 15px; /* Tăng khoảng cách giữa các input */
@@ -87,7 +102,6 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
-
 .signup-container input[type="submit"] {
     width: 100%;
     padding: 15px; /* Tăng kích thước của nút submit */

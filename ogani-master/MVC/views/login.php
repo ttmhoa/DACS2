@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="/ogani-master/public/css/style.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/log-sign.css" type="text/css">
 </head>
-
 <body>
     <!-- header -->
     <header class="header">
@@ -168,7 +167,6 @@
     <script src="/ogani-master/public/js/mixitup.min.js"></script>
     <script src="/ogani-master/public/js/owl.carousel.min.js"></script>
     <script src="/ogani-master/public/js/main.js"></script>
-
     <script>
         $(document).ready(function() {
             $("#login-form").on("submit", function(e) {
