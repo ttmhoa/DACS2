@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +53,16 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-            <li>Email: <?php echo isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : 'Chưa đăng nhập'; ?></li>
+                <li>
+                    Email:
+                    <?php if (isset($_SESSION['user']['email'])): ?>
+                        <a href="/ogani-master/MVC/views/user/editUser.php">
+                            <?php echo $_SESSION['user']['email']; ?>
+                        </a>
+                    <?php else: ?>
+                        Chưa đăng nhập
+                    <?php endif; ?>
+                </li>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -82,13 +90,22 @@
         </div>
         <div class="humberger__menu__contact">
             <ul>
-            <li>Email: <?php echo isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : 'Chưa đăng nhập'; ?></li>
-            <li>Free Shipping for all Order of $99</li>
+                <li>
+                    Email:
+                    <?php if (isset($_SESSION['user']['email'])): ?>
+                        <a href="/ogani-master/MVC/views/user/editUser.php">
+                            <?php echo $_SESSION['user']['email']; ?>
+                        </a>
+                    <?php else: ?>
+                        Chưa đăng nhập
+                    <?php endif; ?>
+                </li>
+                <li>Free Shipping for all Order of $99</li>
             </ul>
+
         </div>
     </div>
     <!-- Humberger End -->
-
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
@@ -97,8 +114,18 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                            <li>Hello,<?php echo isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : 'Chưa đăng nhập'; ?></li>
-                            <li>Free Shipping for all Order of $99</li>
+                                <li>
+                                    Email:
+                                    <?php if (isset($_SESSION['user']['email'])): ?>
+                                        <a href="userController/showUser" style="color: black;">
+                                            <?php echo $_SESSION['user']['email']; ?>
+                                        </a>
+
+                                    <?php else: ?>
+                                        Chưa đăng nhập
+                                    <?php endif; ?>
+                                </li>
+                                <li>Free Shipping for all Order of $99</li>
                             </ul>
                         </div>
                     </div>
@@ -120,8 +147,8 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                    <a href="/loginController/logout"><i class="fa fa-user"></i> Logout</a>
-                                    <a href="/ogani-master/MVC/views/login.php"><i class="fa fa-user"></i> Login</a>
+                                <a href="/loginController/logout"><i class="fa fa-user"></i> Logout</a>
+                                <a href="/ogani-master/MVC/views/login.php"><i class="fa fa-user"></i> Login</a>
                             </div>
                         </div>
                     </div>
@@ -167,8 +194,8 @@
     </header>
     <!-- Header Section End -->
 
-    <?php include 'pages/'.$data["page"].'.php'; ?>
-    
+    <?php include 'pages/' . $data["page"] . '.php'; ?>
+
     <!-- Footer Section Begin -->
     <footer class="footer spad">
         <div class="container">
@@ -182,7 +209,7 @@
                             <li>Address: 60-49 Road 11378 New York</li>
                             <li>Phone: +65 11.188.888</li>
                             <li>myhoa@mail.com</li>
-<!-- Thêm địa chỉ email vào đây -->
+                            <!-- Thêm địa chỉ email vào đây -->
                         </ul>
                     </div>
                 </div>
