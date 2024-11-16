@@ -13,11 +13,13 @@ class modelshopDT extends DB
     return null; // Trả về null nếu không tìm thấy sản phẩm
 }
 
+
 public function department() {
     $sql = "SELECT * FROM category";
     $kq = mysqli_query($this->con ,$sql); 
     return $kq;
 }
+
 
     public function getLatestProduct()
     {

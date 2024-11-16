@@ -247,9 +247,12 @@
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="<?php echo $row5['image']; ?>">
                                     <ul class="product__item__pic__hover">
+                                    <li><a href="/shopdetailcontroller/Viewnews/shopdetail/<?php echo $row5['id']; ?>">
+                                         <i class="fa-solid fa-eye" style="color: #06000a;"></i>
+                                     </a></li>
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="/shopCardcontroller/store/<?php echo $row5['id']; ?>"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">

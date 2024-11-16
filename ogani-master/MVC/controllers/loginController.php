@@ -45,6 +45,8 @@ class loginController extends Controller
     }
     public function logout()
     {
+        unset($_SESSION['total']);
+        unset($_SESSION['cart']);
         session_unset();
         session_destroy();
         header("Location:/ogani-master/MVC/views/login.php");

@@ -16,7 +16,6 @@ class Hom extends Controller{
        
     ]);
     }
-
     function Viewnews($parampage,$id){
         // model
         $teo = $this->model("SanPhamHom");
