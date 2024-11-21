@@ -316,7 +316,7 @@
     document.getElementById("submitButton").addEventListener('click', async function(event) {
         event.preventDefault();
         const pathArray = window.location.pathname.split('/');
-        const blog_id = pathArray[pathArray.length - 1]; // Lấy blog_id từ URL
+        const blog_id = pathArray[pathArray.length - 1]; 
         let commentInput = document.getElementById('message').value;
 
         try {
@@ -327,7 +327,7 @@
                 },
                 body: JSON.stringify({
                     comment: commentInput,
-                    blog_id: blog_id // Thêm blog_id vào dữ liệu gửi đi
+                    blog_id: blog_id 
                 })
             });
 
@@ -337,14 +337,14 @@
 
             const data = await response.json();
             if (data.success) {
-                addToComment(data); // Gọi hàm thêm bình luận
-                document.getElementById('message').value = ""; // Xóa nội dung sau khi bình luận
+                addToComment(data); 
+                document.getElementById('message').value = ""; 
             } else {
                 console.error("Server response error:", data.message);
                 alert("Lỗi khi gửi bình luận: " + data.message);
             }
             if (data.message === "User chưa đăng nhập") {
-                window.location.href = "/ogani-master/MVC/views/login.php"; // Điều chỉnh đường dẫn nếu cần
+                window.location.href = "/ogani-master/MVC/views/login.php"; 
             }
         } catch (error) {
             console.error("Fetch error:", error);
@@ -360,7 +360,6 @@
             return;
         }
 
-        // Tạo phần tử HTML cho bình luận mới
         // Tạo phần tử HTML cho bình luận mới
         const newComment = document.createElement('div');
         newComment.className = 'media';
@@ -388,34 +387,34 @@
 `;
 
 
-        // Thêm bình luận mới vào đầu danh sách
+        
         commentList.prepend(newComment);
 
-        // Gọi lại hàm gắn sự kiện like cho các bình luận
+        
         attachLikeEvents();
     }
 
     // Hàm gắn sự kiện like cho các nút like
     function attachLikeEvents() {
         document.querySelectorAll('.like-button').forEach(button => {
-            // Loại bỏ sự kiện cũ để tránh trùng lặp sự kiện
+        
             button.removeEventListener('click', likeButtonHandler);
             button.addEventListener('click', likeButtonHandler);
         });
     }
 
-    // Hàm xử lý sự kiện khi nhấn like
+
     async function likeButtonHandler(event) {
         event.preventDefault();
 
-        const button = this; // Nút like hiện tại
-        const likeIcon = button.querySelector('.fa-thumbs-up'); // Biểu tượng like
-        const likeCountSpan = button.querySelector('.like-count'); // Phần tử hiển thị số lượt like
+        const button = this; 
+        const likeIcon = button.querySelector('.fa-thumbs-up'); 
+        const likeCountSpan = button.querySelector('.like-count'); 
         const commentId = button.getAttribute('data-comment-id');
 
         if (!likeCountSpan) {
             console.error("Không tìm thấy phần tử .like-count trong nút like.");
-            return; // Thoát nếu không tìm thấy phần tử
+            return; 
         }
 
         try {
@@ -437,7 +436,7 @@
             console.log("Server response: ", data);
 
             if (data.success) {
-                // Cập nhật giao diện nút like
+        
                 if (data.liked) {
                     likeIcon.classList.add('text-success'); // Thêm màu xanh
                     likeIcon.classList.remove('text-muted'); // Bỏ màu xám
@@ -447,14 +446,14 @@
                 }
 
                 // Cập nhật số lượt like
-                const newLikeCount = data.likeCount || 0; // Sử dụng giá trị từ server
-                button.setAttribute('data-likes', newLikeCount); // Cập nhật `data-likes`
-                likeCountSpan.textContent = newLikeCount; // Cập nhật hiển thị số lượt like
+                const newLikeCount = data.likeCount || 0; 
+                button.setAttribute('data-likes', newLikeCount); 
+                likeCountSpan.textContent = newLikeCount; 
             } else {
                 console.error("Server response error:", data.message);
             }
             if (data.message === "Bạn cần đăng nhập để thực hiện hành động này.") {
-                window.location.href = "/ogani-master/MVC/views/login.php"; // Điều chỉnh đường dẫn nếu cần
+                window.location.href = "/ogani-master/MVC/views/login.php"; 
             }
 
         } catch (error) {
@@ -463,21 +462,21 @@
         }
     }
 
-    // Đảm bảo mã chỉ chạy khi DOM đã tải xong
+
     document.addEventListener('DOMContentLoaded', function() {
-        attachLikeEvents(); // Gắn sự kiện like khi trang đã tải xong
+        attachLikeEvents(); 
     });
     async function likeButtonHandler(event) {
         event.preventDefault();
 
-        const button = this; // Nút like hiện tại
+        const button = this; 
         const likeIcon = button.querySelector('.fa-thumbs-up'); // Biểu tượng like
         const likeCountSpan = button.querySelector('.like-count'); // Phần tử hiển thị số lượt like
         const commentId = button.getAttribute('data-comment-id');
 
         if (!likeCountSpan) {
             console.error("Không tìm thấy phần tử .like-count trong nút like.");
-            return; // Thoát nếu không tìm thấy phần tử
+            return; 
         }
 
         try {
@@ -499,7 +498,7 @@
             console.log("Server response: ", data);
 
             if (data.success) {
-                // Cập nhật giao diện nút like
+                
                 if (data.userLike === 1) { // Kiểm tra nếu trạng thái 'like' là 1
                     likeIcon.classList.add('text-success'); // Thêm màu xanh
                     likeIcon.classList.remove('text-muted'); // Bỏ màu xám
@@ -510,14 +509,14 @@
 
 
                 // Cập nhật số lượt like
-                const newLikeCount = data.likeCount || 0; // Sử dụng giá trị từ server
+                const newLikeCount = data.likeCount || 0;
                 button.setAttribute('data-likes', newLikeCount); // Cập nhật `data-likes`
                 likeCountSpan.textContent = newLikeCount; // Cập nhật hiển thị số lượt like
             } else {
                 console.error("Server response error:", data.message);
             }
             if (data.message === "Bạn cần đăng nhập để thực hiện hành động này.") {
-                window.location.href = "/ogani-master/MVC/views/login.php"; // Điều chỉnh đường dẫn nếu cần
+                window.location.href = "/ogani-master/MVC/views/login.php"; 
             }
 
         } catch (error) {
@@ -526,13 +525,13 @@
         }
     }
 
-    // Đảm bảo mã chỉ chạy khi DOM đã tải xong
+    
     document.addEventListener('DOMContentLoaded', function() {
-        attachLikeEvents(); // Gắn sự kiện like khi trang đã tải xong
+        attachLikeEvents(); 
     });
     document.querySelectorAll(".search_Type").forEach(function(element) {
         element.addEventListener("click", async function(event) {
-            event.preventDefault(); // Ngăn chuyển trang
+            event.preventDefault(); 
 
             // Lấy giá trị từ thuộc tính data-value
             const category = this.getAttribute("data-value");
@@ -554,11 +553,11 @@
 
                 const data = await response.json();
 
-                // Kiểm tra nếu data.success và cập nhật nội dung
+                
                 if (data.success) {
                     const rowElement = document.getElementById("row");
                     if (rowElement) {
-                        rowElement.innerHTML = data.html; // Giả sử server trả về HTML ở data.html
+                        rowElement.innerHTML = data.html; 
                         rowElement.hidden = false;
                     } else {
                         console.error("Phần tử #row không tồn tại.");

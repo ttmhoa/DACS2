@@ -194,13 +194,13 @@
 </section>
 <script type="text/javascript">
     document.getElementById("search_name").addEventListener("input", async function(event) {
-        event.preventDefault(); // Ngăn chuyển trang khi người dùng nhập
+        event.preventDefault(); 
 
-        const search_name = this.value; // Lấy giá trị từ trường input với name="search_name"
+        const search_name = this.value; 
 
         if (!search_name) {
             console.log("Vui lòng nhập từ khóa tìm kiếm.");
-            return; // Nếu không có giá trị, không gửi yêu cầu
+            return; 
         }
 
         try {
@@ -210,27 +210,25 @@
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    search_name: search_name // Gửi dữ liệu dưới dạng JSON
+                    search_name: search_name 
                 }),
             });
 
-            const responseText = await response.text(); // Đọc phản hồi dưới dạng văn bản
+            const responseText = await response.text(); 
 
-            // Kiểm tra nếu phản hồi rỗng
             if (!responseText) {
                 console.error("Phản hồi từ server rỗng");
                 alert("Không nhận được dữ liệu từ server.");
                 return;
             }
 
-            // Kiểm tra nếu phản hồi là JSON hợp lệ
             try {
                 const data = JSON.parse(responseText);
 
                 if (data.success) {
                     const rowElement = document.getElementById("row");
                     if (rowElement) {
-                        rowElement.innerHTML = data.html; // Giả sử server trả về HTML trong data.html
+                        rowElement.innerHTML = data.html; 
                         rowElement.hidden = false;
                     } else {
                         console.error("Phần tử #row không tồn tại.");
@@ -240,7 +238,7 @@
                 }
             } catch (jsonError) {
                 console.error("Lỗi khi parse JSON:", jsonError);
-                console.log("Phản hồi từ server:", responseText); // In ra nội dung phản hồi từ server
+                console.log("Phản hồi từ server:", responseText); 
                 alert("Lỗi khi phân tích dữ liệu từ server.");
             }
 
@@ -253,9 +251,7 @@
 
     document.querySelectorAll(".search_Type").forEach(function(element) {
         element.addEventListener("click", async function(event) {
-            event.preventDefault(); // Ngăn chuyển trang
-
-            // Lấy giá trị từ thuộc tính data-value
+            event.preventDefault(); 
             const category = this.getAttribute("data-value");
 
             try {
@@ -274,12 +270,10 @@
                 }
 
                 const data = await response.json();
-
-                // Kiểm tra nếu data.success và cập nhật nội dung
                 if (data.success) {
                     const rowElement = document.getElementById("row");
                     if (rowElement) {
-                        rowElement.innerHTML = data.html; // Giả sử server trả về HTML ở data.html
+                        rowElement.innerHTML = data.html; 
                         rowElement.hidden = false;
                     } else {
                         console.error("Phần tử #row không tồn tại.");
