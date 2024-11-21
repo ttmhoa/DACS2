@@ -44,13 +44,11 @@
     </div>
 
     <script>
-        // Thêm sự kiện click cho các nút đánh giá
         const rateButtons = document.querySelectorAll('.btn-rate');
 
         rateButtons.forEach(button => {
             button.addEventListener('click', function() {
-                const productId = this.getAttribute('data-product-id'); // Lấy ID sản phẩm
-                // Chuyển hướng đến trang rating.php với ID sản phẩm
+                const productId = this.getAttribute('data-product-id'); 
                 window.location.href = '/ogani-master/MVC/views/rating/rating.php?product_id=' + productId;
             });
         });

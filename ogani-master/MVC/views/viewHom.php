@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/ogani-master/public/css/coment.css" type="text/css">
+
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="/ogani-master/public/css/bootstrap.min.css" type="text/css">
@@ -21,6 +24,8 @@
     <link rel="stylesheet" href="/ogani-master/public/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/ogani-master/public/css/coment.css" type="text/css">
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <!-- jQuery -->
@@ -202,7 +207,7 @@
                                     <li><a href="/blogDetailcontroller">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/blogcontroller">Blog</a></li>
+                            <li><a href="/blogcontroller/showBlog">Blog</a></li>
                             <li><a href="/contactcontroller">Contact</a></li>
                         </ul>
                     </nav>
@@ -275,11 +280,8 @@
             </div>
         </div>
     </footer>
-<<<<<<< HEAD
 
  
-=======
->>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
@@ -291,10 +293,7 @@
     <script src="/ogani-master/public/js/mixitup.min.js"></script>
     <script src="/ogani-master/public/js/owl.carousel.min.js"></script>
     <script src="/ogani-master/public/js/main.js"></script>
-<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-=======
->>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
 </body>
 
 </html>
