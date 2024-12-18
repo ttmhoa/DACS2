@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="/ogani-master/public/css/coment.css" type="text/css">
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- jQuery -->
     <script type="text/javascript">
         $(document).ready(function() {
@@ -50,7 +50,7 @@
             });
         });
     </script>
-    
+
 
 </head>
 
@@ -75,7 +75,7 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
-                
+
                 <img src="/ogani-master/img/language.png" alt="">
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
@@ -179,8 +179,17 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="/loginController/logout"><i class="fa fa-user"></i> Logout</a>
-                                <a href="/ogani-master/MVC/views/login.php"><i class="fa fa-user"></i> Login</a>
+                                <?php
+                                // Kiểm tra session có tồn tại và chứa thông tin email hay không
+                                if (isset($_SESSION['user']['email'])): ?>
+                                    <!-- Nếu đã đăng nhập thì hiển thị Logout -->
+                                    <a href="/loginController/logout"><i class="fa fa-user"></i> Logout</a>
+                                <?php else: ?>
+                                    <!-- Nếu chưa đăng nhập thì hiển thị Login -->
+                                    <a href="/ogani-master/MVC/views/login.php"><i class="fa fa-user"></i> Login</a>
+                                <?php endif; ?>
+                                <!-- <a href="/loginController/logout"><i class="fa fa-user"></i> Logint</a> -->
+                                <!-- <a href="/ogani-master/MVC/views/login.php"><i class="fa fa-user"></i> Login</a> -->
                             </div>
                         </div>
                     </div>
@@ -281,7 +290,7 @@
         </div>
     </footer>
 
- 
+
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
