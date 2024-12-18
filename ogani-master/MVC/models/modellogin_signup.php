@@ -1,10 +1,31 @@
 <?php
 class modellogin_signup extends DB
 {
+    public function role($role_id)
+    {
+        $query = "SELECT * FROM role WHERE id = ?";
+        $stmt = mysqli_prepare($this->con, $query);
+
+        if (!$stmt) {
+            die('Câu lệnh chuẩn bị thất bại: ' . mysqli_error($this->con));
+        }
+
+        mysqli_stmt_bind_param($stmt, "i", $role_id); 
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            return mysqli_fetch_assoc($result);
+        }
+
+        return null; 
+    }
+
     public function login($username, $password)
     {
         $query = "SELECT * FROM User WHERE fullname = ?";
         $stmt = mysqli_prepare($this->con, $query);
+
         if (!$stmt) {
             die('Câu lệnh chuẩn bị thất bại: ' . mysqli_error($this->con));
         }
@@ -17,9 +38,12 @@ class modellogin_signup extends DB
             if ($result && mysqli_num_rows($result) > 0) {
                 $user = mysqli_fetch_assoc($result);
                 if ($password === $user["password"]) {
+                    $role = $this->role($user['role_id']);
+                    $user['role'] = $role;
+                    // print_r($user);
                     return $user;
                 } else {
-                    return 1;
+                    return 1; // Sai mật khẩu
                 }
             } else {
                 die('Không tìm thấy người dùng hoặc lỗi trong truy vấn');
@@ -29,6 +53,7 @@ class modellogin_signup extends DB
             die('Thực thi câu lệnh thất bại: ' . mysqli_error($this->con));
         }
     }
+
     public function signup($username, $password, $email, $phone, $address, $role)
     {
         $query = "SELECT * FROM User WHERE email = ?";

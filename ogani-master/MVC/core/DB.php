@@ -19,10 +19,10 @@ class DB {
         mysqli_set_charset($this->con, "utf8");
     }
 
-    function __destruct() {
-        // Close the connection when the object is destroyed
-        mysqli_close($this->con);
-    }
+    // function __destruct() {
+    //     // Close the connection when the object is destroyed
+    //     mysqli_close($this->con);
+    // }
 }
 
 

@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="/ogani-master/public/css/style.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/log-sign.css" type="text/css">
 </head>
+
 <body>
     <!-- header -->
     <header class="header">
@@ -170,35 +171,42 @@
     <script>
         $(document).ready(function() {
             $("#login-form").on("submit", function(e) {
-                e.preventDefault(); 
+                e.preventDefault();
 
                 var username = $("#username").val();
                 var password = $("#password").val();
 
                 $.ajax({
-                    url: '/loginController/login', 
+                    url: '/loginController/login',
                     method: 'POST',
                     data: {
                         username: username,
                         password: password
                     },
                     success: function(response) {
-                        console.log(response); 
-                        if (response.status === 'success') {
-                            $("#error-message").css("color", "green").text(response.message).show();
-                            window.location.href = '/Hom'; 
+                        console.log(response);
 
+                        if (response.status === 'success') {
+                            if (response.user && response.user.role && response.user.role.name) {
+                                if (response.user.role.name === "User") {
+                                    window.location.href = '/Hom';
+                                } else if (response.user.role.name === "Admin") {
+                                    window.location.href = '/pagescontroller';
+                                } 
+                            } else {
+                                $("#error-message").css("color", "red").text("Dữ liệu không hợp lệ từ server.").show();
+                            }
+
+                            setTimeout(function() {
+                                $("#error-message").fadeOut();
+                            }, 2000);
                         } else {
                             $("#error-message").css("color", "red").text(response.message).show();
                         }
-                        setTimeout(function() {
-                            $("#error-message").fadeOut();
-                        }, 2000);
                     },
                     error: function(xhr) {
-                        console.log(xhr.responseText); 
-                        var response = JSON.parse(xhr.responseText);
-                        $("#error-message").css("color", "red").text(response.message).show();
+                        console.log("Server error: ", xhr.responseText);
+                        $("#error-message").css("color", "red").text("Không thể kết nối đến server.").show();
                     }
                 });
             });

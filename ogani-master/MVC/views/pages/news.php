@@ -78,7 +78,7 @@
                  <div class="section-title">
                      <h2>Featured Product</h2>
                  </div>
-                 <div class="featured__controls">
+                 <div class="featured__controls" >
                      <ul>
                          <?php while ($row2 = mysqli_fetch_array($data["feature"])) { ?>
                              <a href="/Hom/Viewnews/news/<?php echo $row2['id']; ?>" style="color: black; font-size: large; padding-right: 20px" data-filter=".<?php echo $row2['name']; ?>"> <?php echo $row2['name']; ?> </a>
@@ -103,7 +103,7 @@
                                      </a></li>
                                  <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                  <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                 <li><a href="/shopCardcontroller/store/<?php echo $row3['id']; ?>"><i class="fa fa-shopping-cart"></i></a></li>
                              </ul>
                          </div>
 

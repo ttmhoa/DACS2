@@ -20,14 +20,13 @@
              <div class="col-lg-9">
                  <div class="hero__search">
                      <div class="hero__search__form">
-                         <form action="#">
+                         <!-- <form action="#">
                              <div class="hero__search__categories">
                                  All Categories
                                  <span class="arrow_carrot-down"></span>
                              </div>
-                             <input type="text" placeholder="What do yo u need?">
-                             <button type="submit" class="site-btn">SEARCH</button>
-                         </form>
+                             
+                         </form> -->
                      </div>
                      <div class="hero__search__phone">
                          <div class="hero__search__phone__icon">
@@ -237,7 +236,9 @@
                      <div class="product__item ">
                          <div class="product__item__pic set-bg" data-setbg="<?php echo $row["image"]; ?>">
                              <ul class="product__item__pic__hover">
-
+                                 <li><a href="/Hom/Viewnews/news/<?php echo $row['id']; ?>">
+                                         <i class="fa-solid fa-eye" style="color: #06000a;"></i>
+                                     </a></li>
                                  <li><a href="#"><i class="fa fa-heart "></i></a></li>
                                  <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                  <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>

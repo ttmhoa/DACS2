@@ -3,7 +3,7 @@ class loginController extends Controller
 {
     function login()
     {
-        header('Content-Type: application/json');
+        header('Content-Type: application/json'); 
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $username = $_POST['username'] ?? '';
@@ -12,39 +12,52 @@ class loginController extends Controller
             if (empty($username) || empty($password)) {
                 http_response_code(400);
                 echo json_encode(['status' => 'error', 'message' => 'Tên đăng nhập và mật khẩu không được để trống.']);
-                return;
+                exit; 
             }
 
             $loginModel = $this->model("modellogin_signup");
             $user = $loginModel->login($username, $password);
+
             switch (true) {
                 case is_array($user):
                     $_SESSION['user'] = $user;
-                    echo json_encode(['status' => 'success', 'message' => 'Đăng nhập thành công.']);
-                    break;
+                    $response = [
+                        'status' => 'success',
+                        'message' => 'Đăng nhập thành công.',
+                        'user' => [
+                            'role' => $user['role']
+                        ]
+                    ];
+                    http_response_code(200);
+                    echo json_encode($response);
+                    exit;
 
                 case $user === 1:
                     http_response_code(401);
                     echo json_encode(['status' => 'error', 'message' => 'Mật khẩu không đúng.']);
-                    break;
+                    exit;
 
                 case $user === 2:
                     http_response_code(404);
                     echo json_encode(['status' => 'error', 'message' => 'Tài khoản không tồn tại.']);
-                    break;
+                    exit;
 
                 default:
                     http_response_code(500);
                     echo json_encode(['status' => 'error', 'message' => 'Lỗi máy chủ.']);
-                    break;
+                    exit;
             }
         } else {
             http_response_code(405);
             echo json_encode(['status' => 'error', 'message' => 'Phương thức yêu cầu không hợp lệ.']);
+            exit;
         }
     }
+
     public function logout()
     {
+        unset($_SESSION['total']);
+        unset($_SESSION['cart']);
         session_unset();
         session_destroy();
         header("Location:/ogani-master/MVC/views/login.php");
