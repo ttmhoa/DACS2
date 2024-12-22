@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/ogani-master/public/css/coment.css" type="text/css">
+
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="/ogani-master/public/css/bootstrap.min.css" type="text/css">
@@ -22,6 +24,8 @@
     <link rel="stylesheet" href="/ogani-master/public/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/ogani-master/public/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/ogani-master/public/css/coment.css" type="text/css">
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <!-- jQuery -->
@@ -81,7 +85,16 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-            <li>Email: <?php echo isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : 'Chưa đăng nhập'; ?></li>
+                <li>
+                    Email:
+                    <?php if (isset($_SESSION['user']['email'])): ?>
+                        <a href="/ogani-master/MVC/views/user/editUser.php">
+                            <?php echo $_SESSION['user']['email']; ?>
+                        </a>
+                    <?php else: ?>
+                        Chưa đăng nhập
+                    <?php endif; ?>
+                </li>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -109,13 +122,22 @@
         </div>
         <div class="humberger__menu__contact">
             <ul>
-            <li>Email: <?php echo isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : 'Chưa đăng nhập'; ?></li>
-            <li>Free Shipping for all Order of $99</li>
+                <li>
+                    Email:
+                    <?php if (isset($_SESSION['user']['email'])): ?>
+                        <a href="/ogani-master/MVC/views/user/editUser.php">
+                            <?php echo $_SESSION['user']['email']; ?>
+                        </a>
+                    <?php else: ?>
+                        Chưa đăng nhập
+                    <?php endif; ?>
+                </li>
+                <li>Free Shipping for all Order of $99</li>
             </ul>
+
         </div>
     </div>
     <!-- Humberger End -->
-
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
@@ -124,8 +146,18 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                            <li>Hello,<?php echo isset($_SESSION['user']['email']) ? $_SESSION['user']['email'] : 'Chưa đăng nhập'; ?></li>
-                            <li>Free Shipping for all Order of $99</li>
+                                <li>
+                                    Email:
+                                    <?php if (isset($_SESSION['user']['email'])): ?>
+                                        <a href="userController/showUser" style="color: black;">
+                                            <?php echo $_SESSION['user']['email']; ?>
+                                        </a>
+
+                                    <?php else: ?>
+                                        Chưa đăng nhập
+                                    <?php endif; ?>
+                                </li>
+                                <li>Free Shipping for all Order of $99</li>
                             </ul>
                         </div>
                     </div>
@@ -147,8 +179,8 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                    <a href="/loginController/logout"><i class="fa fa-user"></i> Logout</a>
-                                    <a href="/ogani-master/MVC/views/login.php"><i class="fa fa-user"></i> Login</a>
+                                <a href="/loginController/logout"><i class="fa fa-user"></i> Logout</a>
+                                <a href="/ogani-master/MVC/views/login.php"><i class="fa fa-user"></i> Login</a>
                             </div>
                         </div>
                     </div>
@@ -175,7 +207,7 @@
                                     <li><a href="/blogDetailcontroller">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/blogcontroller">Blog</a></li>
+                            <li><a href="/blogcontroller/showBlog">Blog</a></li>
                             <li><a href="/contactcontroller">Contact</a></li>
                         </ul>
                     </nav>
@@ -194,8 +226,8 @@
     </header>
     <!-- Header Section End -->
 
-    <?php include 'pages/'.$data["page"].'.php'; ?>
-    
+    <?php include 'pages/' . $data["page"] . '.php'; ?>
+
     <!-- Footer Section Begin -->
     <footer class="footer spad">
         <div class="container">
@@ -209,7 +241,7 @@
                             <li>Address: 60-49 Road 11378 New York</li>
                             <li>Phone: +65 11.188.888</li>
                             <li>myhoa@mail.com</li>
-<!-- Thêm địa chỉ email vào đây -->
+                            <!-- Thêm địa chỉ email vào đây -->
                         </ul>
                     </div>
                 </div>
@@ -248,11 +280,8 @@
             </div>
         </div>
     </footer>
-<<<<<<< HEAD
 
  
-=======
->>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
@@ -264,10 +293,7 @@
     <script src="/ogani-master/public/js/mixitup.min.js"></script>
     <script src="/ogani-master/public/js/owl.carousel.min.js"></script>
     <script src="/ogani-master/public/js/main.js"></script>
-<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-=======
->>>>>>> 4ebd19e4b24b1621d02ecbad46ed81c1b6c94e84
 </body>
 
 </html>

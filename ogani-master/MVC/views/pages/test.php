@@ -40,8 +40,8 @@
                                 All Categories
                                 <span class="arrow_carrot-down"></span>
                             </div>
-                            <input type="text" name="search_name" id="search_name" class="form-control" placeholder="What do yo u need?">
-                            <!-- <button type="submit" class="site-btn">SEARCH</button> -->
+                            <input type="text" placeholder="What do yo u need?">
+                            <button type="submit" class="site-btn">SEARCH</button>
                         </form>
                     </div>
                     <div class="hero__search__phone">
@@ -94,12 +94,11 @@
                     <div class="blog__sidebar__item">
                         <h4>Categories</h4>
                         <ul>
-                            <li><a href="/ogani-master/MVC/views/pages/crateblog.php">Create Blog</a></li>
-                            <li><a href="/blogcontroller/showBlog">All</a></li>
-                            <li><a class="search_Type" data-value="Beauty">Beauty</a></li>
-                            <li><a class="search_Type" data-value="Food">Food</a></li>
-                            <li><a class="search_Type" data-value="Vegetables">Vegetables (9)</a></li>
-                            <li><a class="search_Type" data-value="Fruit">Fruit</a></li>
+                            <li><a href="#">All</a></li>
+                            <li><a href="#">Beauty (20)</a></li>
+                            <li><a href="#">Food (5)</a></li>
+                            <li><a href="#">Life Style (9)</a></li>
+                            <li><a href="#">Travel (10)</a></li>
                         </ul>
                     </div>
                     <div class="blog__sidebar__item">
@@ -158,10 +157,10 @@
                         <div class="col-lg-6">
                             <div class="blog__details__author">
                                 <div class="blog__details__author__pic">
-                                    <img src="<?php echo $data['image']; ?>" alt="">
+                                    <img src="/ogani-master/img/blog/details/details-author.jpg" alt="">
                                 </div>
                                 <div class="blog__details__author__text">
-                                    <h6><?php echo $data['fullname']; ?></h6>
+                                    <h6>Michael Scofield</h6>
                                     <span>Admin</span>
                                 </div>
                             </div>
@@ -188,67 +187,66 @@
     </div>
 </section>
 <section class="content-item" id="comments">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8">
-                <form>
-                    <h3 class="pull-left">New Comment</h3>
-                    <button type="submit" id="submitButton" class="btn btn-normal pull-right">Submit</button>
-                    <fieldset>
-                        <div class="row">
-                            <div class="col-sm-3 col-lg-2 hidden-xs">
-                                <img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                            </div>
-                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                <textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-
-                <h3><?php echo $data['count_comment']; ?> Comments</h3>
-                <div id="commentListContainer" style="max-height: 800px; overflow-y: auto; overflow-x: hidden; padding-right: 10px; border: 1px solid #ddd; padding: 10px;">
-                    <div id="commentList">
-                        <?php if (!empty($data['comments'])) : ?>
-                            <?php foreach ($data['comments'] as $comment): ?>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="media-object" src="<?php echo $comment['image']; ?>" alt="">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><?php echo $comment['fullname']; ?></h4>
-                                        <p><?php echo $comment['comment']; ?></p>
-                                        <ul class="list-unstyled list-inline media-detail pull-left">
-                                            <li><i class="fa fa-calendar"></i> <?php echo $comment['created_at']; ?></li>
-                                            <li class="like-button"
-                                                data-comment-id="<?php echo $comment['id']; ?>"
-                                                data-user-id="<?php echo $comment['user_id']; ?>"
-                                                data-likes="<?php echo $comment['like']; ?>">
-                                                <!-- Kiểm tra trạng thái "like" -->
-                                                <i class="fa fa-thumbs-up <?php echo $data['likeColors'][$comment['id']] == 1 ? 'text-success' : 'text-muted'; ?>"></i>
-                                                <span class="like-count"><?php echo $comment['like']; ?></span>
-                                            </li>
-                                        </ul>
-                                        <ul class="list-unstyled list-inline media-detail pull-right">
-                                            <li><a href="">Reply</a></li>
-                                        </ul>
-                                    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <form>
+                        <h3 class="pull-left">New Comment</h3>
+                        <button type="submit" id="submitButton" class="btn btn-normal pull-right">Submit</button>
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-sm-3 col-lg-2 hidden-xs">
+                                    <img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                                 </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                                <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                    <textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <h3>4 Comments</h3>
+                    <div id="commentListContainer" style="max-height: 800px; overflow-y: auto; overflow-x: hidden; padding-right: 10px; border: 1px solid #ddd; padding: 10px;">
+                        <div id="commentList">
+                            <!-- Bình luận mới sẽ được thêm vào đây bởi hàm addToComment -->
+                            <?php if (!empty($data['comments'])) : ?>
+                                <?php foreach ($data['comments'] as $comment): ?>
+                                    <div class="media">
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object" src="<?php echo $comment['image']; ?>" alt="">
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><?php echo $comment['fullname']; ?></h4>
+                                            <p><?php echo $comment['comment']; ?></p>
+                                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                                <li><i class="fa fa-calendar"></i> <?php echo $comment['created_at']; ?></li>
+                                                <li class="like-button"
+                                                    data-comment-id="<?php echo $comment['id']; ?>"
+                                                    data-user-id="<?php echo $comment['user_id']; ?>"
+                                                    data-likes="<?php echo $comment['like']; ?>">
+                                                    <i class="fa fa-thumbs-up text-muted"></i>
+                                                    <span class="like-count"><?php echo $comment['like']; ?></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-unstyled list-inline media-detail pull-right">
+                                                <li><a href="">Reply</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
 
+
+
                 </div>
-
-
-
             </div>
-        </div>
-</section>
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-</script>
+    </section>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    </script>
 
 <!-- Blog Details Section End -->
 
@@ -312,58 +310,59 @@
     </div>
 </section>
 <script>
-    // Xử lý sự kiện khi nhấn nút "submit"
-    document.getElementById("submitButton").addEventListener('click', async function(event) {
-        event.preventDefault();
-        const pathArray = window.location.pathname.split('/');
-        const blog_id = pathArray[pathArray.length - 1]; 
-        let commentInput = document.getElementById('message').value;
+        // Xử lý sự kiện khi nhấn nút "submit"
+        document.getElementById("submitButton").addEventListener('click', async function(event) {
+            event.preventDefault();
+            const pathArray = window.location.pathname.split('/');
+            const blog_id = pathArray[pathArray.length - 1]; // Lấy blog_id từ URL
+            let commentInput = document.getElementById('message').value;
 
-        try {
-            const response = await fetch('/blogDetailcontroller/comment', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    comment: commentInput,
-                    blog_id: blog_id 
-                })
-            });
+            try {
+                const response = await fetch('/blogDetailcontroller/comment', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        comment: commentInput,
+                        blog_id: blog_id // Thêm blog_id vào dữ liệu gửi đi
+                    })
+                });
 
-            if (!response.ok) {
-                throw new Error("Lỗi kết nối tới server");
+                if (!response.ok) {
+                    throw new Error("Lỗi kết nối tới server");
+                }
+
+                const data = await response.json();
+                if (data.success) {
+                    addToComment(data); // Gọi hàm thêm bình luận
+                    document.getElementById('message').value = ""; // Xóa nội dung sau khi bình luận
+                } else {
+                    console.error("Server response error:", data.message);
+                    alert("Lỗi khi gửi bình luận: " + data.message);
+                }
+                if (data.message === "User chưa đăng nhập") {
+                    window.location.href = "/ogani-master/MVC/views/login.php"; // Điều chỉnh đường dẫn nếu cần
+                }
+            } catch (error) {
+                console.error("Fetch error:", error);
+                alert('Lỗi khi gửi bình luận: ' + error.message);
+            }
+        });
+
+        // Hàm thêm bình luận mới vào danh sách
+        function addToComment(data) {
+            const commentList = document.getElementById('commentList');
+            if (!commentList) {
+                console.error('Không tìm thấy phần tử commentList.');
+                return;
             }
 
-            const data = await response.json();
-            if (data.success) {
-                addToComment(data); 
-                document.getElementById('message').value = ""; 
-            } else {
-                console.error("Server response error:", data.message);
-                alert("Lỗi khi gửi bình luận: " + data.message);
-            }
-            if (data.message === "User chưa đăng nhập") {
-                window.location.href = "/ogani-master/MVC/views/login.php"; 
-            }
-        } catch (error) {
-            console.error("Fetch error:", error);
-            alert('Lỗi khi gửi bình luận: ' + error.message);
-        }
-    });
-
-    // Hàm thêm bình luận mới vào danh sách
-    function addToComment(data) {
-        const commentList = document.getElementById('commentList');
-        if (!commentList) {
-            console.error('Không tìm thấy phần tử commentList.');
-            return;
-        }
-
-        // Tạo phần tử HTML cho bình luận mới
-        const newComment = document.createElement('div');
-        newComment.className = 'media';
-        newComment.innerHTML = `
+            // Tạo phần tử HTML cho bình luận mới
+            // Tạo phần tử HTML cho bình luận mới
+            const newComment = document.createElement('div');
+            newComment.className = 'media';
+            newComment.innerHTML = `
     <a class="pull-left" href="#">
         <img class="media-object" src="${data.image || 'default-avatar.jpg'}" alt="User Avatar">
     </a>
@@ -387,191 +386,150 @@
 `;
 
 
-        
-        commentList.prepend(newComment);
+            // Thêm bình luận mới vào đầu danh sách
+            commentList.prepend(newComment);
 
-        
-        attachLikeEvents();
-    }
-
-    // Hàm gắn sự kiện like cho các nút like
-    function attachLikeEvents() {
-        document.querySelectorAll('.like-button').forEach(button => {
-        
-            button.removeEventListener('click', likeButtonHandler);
-            button.addEventListener('click', likeButtonHandler);
-        });
-    }
-
-
-    async function likeButtonHandler(event) {
-        event.preventDefault();
-
-        const button = this; 
-        const likeIcon = button.querySelector('.fa-thumbs-up'); 
-        const likeCountSpan = button.querySelector('.like-count'); 
-        const commentId = button.getAttribute('data-comment-id');
-
-        if (!likeCountSpan) {
-            console.error("Không tìm thấy phần tử .like-count trong nút like.");
-            return; 
+            // Gọi lại hàm gắn sự kiện like cho các bình luận
+            attachLikeEvents();
         }
 
-        try {
-            const response = await fetch('/blogDetailcontroller/likeComment', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    comment_id: commentId
-                })
+        // Hàm gắn sự kiện like cho các nút like
+        function attachLikeEvents() {
+            document.querySelectorAll('.like-button').forEach(button => {
+                // Loại bỏ sự kiện cũ để tránh trùng lặp sự kiện
+                button.removeEventListener('click', likeButtonHandler);
+                button.addEventListener('click', likeButtonHandler);
             });
-
-            if (!response.ok) {
-                throw new Error("Lỗi khi kết nối tới server");
-            }
-
-            const data = await response.json();
-            console.log("Server response: ", data);
-
-            if (data.success) {
-        
-                if (data.liked) {
-                    likeIcon.classList.add('text-success'); // Thêm màu xanh
-                    likeIcon.classList.remove('text-muted'); // Bỏ màu xám
-                } else {
-                    likeIcon.classList.add('text-muted'); // Thêm màu xám
-                    likeIcon.classList.remove('text-success'); // Bỏ màu xanh
-                }
-
-                // Cập nhật số lượt like
-                const newLikeCount = data.likeCount || 0; 
-                button.setAttribute('data-likes', newLikeCount); 
-                likeCountSpan.textContent = newLikeCount; 
-            } else {
-                console.error("Server response error:", data.message);
-            }
-            if (data.message === "Bạn cần đăng nhập để thực hiện hành động này.") {
-                window.location.href = "/ogani-master/MVC/views/login.php"; 
-            }
-
-        } catch (error) {
-            console.error("Fetch error:", error);
-            alert('Lỗi khi gửi yêu cầu: ' + error.message);
-        }
-    }
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-        attachLikeEvents(); 
-    });
-    async function likeButtonHandler(event) {
-        event.preventDefault();
-
-        const button = this; 
-        const likeIcon = button.querySelector('.fa-thumbs-up'); // Biểu tượng like
-        const likeCountSpan = button.querySelector('.like-count'); // Phần tử hiển thị số lượt like
-        const commentId = button.getAttribute('data-comment-id');
-
-        if (!likeCountSpan) {
-            console.error("Không tìm thấy phần tử .like-count trong nút like.");
-            return; 
         }
 
-        try {
-            const response = await fetch('/blogDetailcontroller/likeComment', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    comment_id: commentId
-                })
-            });
+        // Hàm xử lý sự kiện khi nhấn like
+        async function likeButtonHandler(event) {
+            event.preventDefault();
 
-            if (!response.ok) {
-                throw new Error("Lỗi khi kết nối tới server");
+            const button = this; // Nút like hiện tại
+            const likeIcon = button.querySelector('.fa-thumbs-up'); // Biểu tượng like
+            const likeCountSpan = button.querySelector('.like-count'); // Phần tử hiển thị số lượt like
+            const commentId = button.getAttribute('data-comment-id');
+
+            if (!likeCountSpan) {
+                console.error("Không tìm thấy phần tử .like-count trong nút like.");
+                return; // Thoát nếu không tìm thấy phần tử
             }
-
-            const data = await response.json();
-            console.log("Server response: ", data);
-
-            if (data.success) {
-                
-                if (data.userLike === 1) { // Kiểm tra nếu trạng thái 'like' là 1
-                    likeIcon.classList.add('text-success'); // Thêm màu xanh
-                    likeIcon.classList.remove('text-muted'); // Bỏ màu xám
-                } else {
-                    likeIcon.classList.add('text-muted'); // Thêm màu xám
-                    likeIcon.classList.remove('text-success'); // Bỏ màu xanh
-                }
-
-
-                // Cập nhật số lượt like
-                const newLikeCount = data.likeCount || 0;
-                button.setAttribute('data-likes', newLikeCount); // Cập nhật `data-likes`
-                likeCountSpan.textContent = newLikeCount; // Cập nhật hiển thị số lượt like
-            } else {
-                console.error("Server response error:", data.message);
-            }
-            if (data.message === "Bạn cần đăng nhập để thực hiện hành động này.") {
-                window.location.href = "/ogani-master/MVC/views/login.php"; 
-            }
-
-        } catch (error) {
-            console.error("Fetch error:", error);
-            alert('Lỗi khi gửi yêu cầu: ' + error.message);
-        }
-    }
-
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        attachLikeEvents(); 
-    });
-    document.querySelectorAll(".search_Type").forEach(function(element) {
-        element.addEventListener("click", async function(event) {
-            event.preventDefault(); 
-
-            // Lấy giá trị từ thuộc tính data-value
-            const category = this.getAttribute("data-value");
 
             try {
-                const response = await fetch("/blogcontroller/search_Type", {
-                    method: "POST",
+                const response = await fetch('/blogDetailcontroller/likeComment', {
+                    method: 'POST',
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        search_name: category
-                    }),
+                        comment_id: commentId
+                    })
                 });
 
                 if (!response.ok) {
-                    throw new Error("Lỗi kết nối tới Server");
+                    throw new Error("Lỗi khi kết nối tới server");
                 }
 
                 const data = await response.json();
+                console.log("Server response: ", data);
 
-                
                 if (data.success) {
-                    const rowElement = document.getElementById("row");
-                    if (rowElement) {
-                        rowElement.innerHTML = data.html; 
-                        rowElement.hidden = false;
+                    // Cập nhật giao diện nút like
+                    if (data.liked) {
+                        likeIcon.classList.add('text-success'); // Thêm màu xanh
+                        likeIcon.classList.remove('text-muted'); // Bỏ màu xám
                     } else {
-                        console.error("Phần tử #row không tồn tại.");
+                        likeIcon.classList.add('text-muted'); // Thêm màu xám
+                        likeIcon.classList.remove('text-success'); // Bỏ màu xanh
                     }
+
+                    // Cập nhật số lượt like
+                    const newLikeCount = data.likeCount || 0; // Sử dụng giá trị từ server
+                    button.setAttribute('data-likes', newLikeCount); // Cập nhật `data-likes`
+                    likeCountSpan.textContent = newLikeCount; // Cập nhật hiển thị số lượt like
                 } else {
-                    alert("Không tìm thấy kết quả.");
+                    console.error("Server response error:", data.message);
                 }
+                if (data.message === "Bạn cần đăng nhập để thực hiện hành động này.") {
+                    window.location.href = "/ogani-master/MVC/views/login.php"; // Điều chỉnh đường dẫn nếu cần
+                }
+
             } catch (error) {
                 console.error("Fetch error:", error);
-                alert("Lỗi khi kết nối tới Server: " + error.message);
+                alert('Lỗi khi gửi yêu cầu: ' + error.message);
             }
+        }
+
+        // Đảm bảo mã chỉ chạy khi DOM đã tải xong
+        document.addEventListener('DOMContentLoaded', function() {
+            attachLikeEvents(); // Gắn sự kiện like khi trang đã tải xong
         });
-    });
-</script>
+         async function likeButtonHandler(event) {
+            event.preventDefault();
+
+            const button = this; // Nút like hiện tại
+            const likeIcon = button.querySelector('.fa-thumbs-up'); // Biểu tượng like
+            const likeCountSpan = button.querySelector('.like-count'); // Phần tử hiển thị số lượt like
+            const commentId = button.getAttribute('data-comment-id');
+
+            if (!likeCountSpan) {
+                console.error("Không tìm thấy phần tử .like-count trong nút like.");
+                return; // Thoát nếu không tìm thấy phần tử
+            }
+
+            try {
+                const response = await fetch('/blogDetailcontroller/likeComment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        comment_id: commentId
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error("Lỗi khi kết nối tới server");
+                }
+
+                const data = await response.json();
+                console.log("Server response: ", data);
+
+                if (data.success) {
+                    // Cập nhật giao diện nút like
+                    if (data.userLike === 1) { // Kiểm tra nếu trạng thái 'like' là 1
+    likeIcon.classList.add('text-success'); // Thêm màu xanh
+    likeIcon.classList.remove('text-muted'); // Bỏ màu xám
+} else {
+    likeIcon.classList.add('text-muted'); // Thêm màu xám
+    likeIcon.classList.remove('text-success'); // Bỏ màu xanh
+}
+
+
+                    // Cập nhật số lượt like
+                    const newLikeCount = data.likeCount || 0; // Sử dụng giá trị từ server
+                    button.setAttribute('data-likes', newLikeCount); // Cập nhật `data-likes`
+                    likeCountSpan.textContent = newLikeCount; // Cập nhật hiển thị số lượt like
+                } else {
+                    console.error("Server response error:", data.message);
+                }
+                if (data.message === "Bạn cần đăng nhập để thực hiện hành động này.") {
+                    window.location.href = "/ogani-master/MVC/views/login.php"; // Điều chỉnh đường dẫn nếu cần
+                }
+
+            } catch (error) {
+                console.error("Fetch error:", error);
+                alert('Lỗi khi gửi yêu cầu: ' + error.message);
+            }
+        }
+
+        // Đảm bảo mã chỉ chạy khi DOM đã tải xong
+        document.addEventListener('DOMContentLoaded', function() {
+            attachLikeEvents(); // Gắn sự kiện like khi trang đã tải xong
+        });
+        
+    </script>
 
 </body>
 
