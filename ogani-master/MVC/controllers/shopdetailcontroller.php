@@ -27,7 +27,7 @@ class shopdetailcontroller extends Controller
     }
 
     function Viewnews($parampage, $id)
-    {
+    { 
         $teo = $this->model("modelshopDT");
 
         // Lấy chi tiết sản phẩm

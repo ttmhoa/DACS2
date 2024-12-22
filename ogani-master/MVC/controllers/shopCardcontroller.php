@@ -4,7 +4,7 @@ class shopCardcontroller extends Controller{
     function  Sayhi(){
         
         $teo = $this->model("modelshopCard");
-        $product=$_SESSION['cart'] ?? [];
+        $product=$_SESSION['cart'] ?? []; //kiem tra gia tri sesion neu null?empty =>mang rongrong
         $this->view("viewHom",[
         "page"=>"shopping-card",
         'product'=>$product,

@@ -1,0 +1,261 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+/* Header màu cam */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#2b2f3a;
+    padding: 20px 20px;
+    color: white;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.navbar-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.search-bar {
+    display: flex;
+    flex: 1;
+    max-width: 600px;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 10px;
+    background-color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.navbar-right a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Container chính */
+.container {
+    display: flex;
+    height: calc(100vh - 60px); /* Trừ chiều cao của header */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    margin: 15px 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Main content */
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.main-content h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/* Avatar bên phải */
+.profile-avatar {
+    text-align: center;
+    width: 200px;
+}
+
+.profile-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.change-avatar-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Form thông tin */
+.profile-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 400px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+.form-old {
+    margin-bottom: 20px;
+}
+
+.form-old label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-old input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+button.save-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #2b2f3a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button.save-button:hover {
+    background-color:#2b2f3a;
+}
+.password-change-form {
+    background-color: #fff;
+    padding: 30px; /* Giữ padding bên trong form */
+    margin: 40px 10px; /* Tăng margin top và bottom (40px), giảm margin right (10px) */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Giữ nguyên flex: 1 để giữ tính linh hoạt */
+    min-width: 600px; /* Đảm bảo độ rộng tối thiểu cho form */
+}
+.input-container {
+    position: relative;
+    margin-bottom: 20px; /* Khoảng cách giữa các trường */
+}
+
+.input-container input {
+    width: 100%; /* Đặt chiều rộng của input chiếm hết không gian */
+    padding: 10px; /* Thêm khoảng cách bên trong */
+    padding-right: 40px; /* Thêm khoảng cách bên phải để có chỗ cho icon */
+    border: 1px solid #ccc; /* Thêm đường viền */
+    border-radius: 4px; /* Bo góc cho input */
+}
+
+.input-container span {
+    position: absolute;
+    right: 10px; /* Căn lề bên phải */
+    top: 50%; /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%); /* Căn giữa chính xác */
+    cursor: pointer; /* Đổi con trỏ khi di chuột qua */
+}
+.submit-button {
+    background-color:#2b2f3a; /* Màu nền xanh lá cây */
+    color: white; /* Màu chữ trắng */
+    padding: 10px 20px; /* Đệm trên/dưới 10px và trái/phải 20px */
+    border: none; /* Bỏ viền */
+    border-radius: 5px; /* Bo góc cho nút */
+    font-size: 16px; /* Kích thước chữ */
+    cursor: pointer; /* Con trỏ sẽ biến thành hình bàn tay khi hover */
+    transition: background-color 0.3s, transform 0.2s; /* Hiệu ứng chuyển đổi */
+}
+
+/* Hiệu ứng khi hover */
+.submit-button:hover {
+    background-color:#2b2f3a; /* Màu nền tối hơn khi hover */
+    transform: scale(1.05); /* Tăng kích thước nút khi hover */
+}
+
+/* Hiệu ứng khi nút bị nhấn */
+.submit-button:active {
+    transform: scale(0.95); /* Giảm kích thước nút khi nhấn */
+}
+
+/* Footer Styles */

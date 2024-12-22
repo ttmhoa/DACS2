@@ -40,7 +40,7 @@ class  modelBlog extends DB
 
         $result = mysqli_stmt_execute($stmt);
         if (!$result) {
-            error_log("Thực thi câu lệnh thất bại: " . mysqli_error($this->con));
+            // error_log("Thực thi câu lệnh thất bại: " . mysqli_error($this->con));
             return false;
         }
 

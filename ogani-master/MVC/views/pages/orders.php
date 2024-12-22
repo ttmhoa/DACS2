@@ -6,7 +6,7 @@
 			</div>
 			<div class="col-sm-6 text-right">
 			</div>
-		</div>
+		</div> 
 	</div>
 	<!-- /.container-fluid -->
 </section>
@@ -18,7 +18,7 @@
 			<div class="card-header">
 				<div class="card-tools">
 					<div class="input-group input-group" style="width: 250px;">
-						<input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+					<input type="text" name="search_name" id="search_name" class="form-control" placeholder="Search By ID orders">
 
 						<div class="input-group-append">
 							<button type="submit" class="btn btn-default">
@@ -43,8 +43,8 @@
 
 						</tr>
 					</thead>
-					<tbody>
-						<?php while ($row = mysqli_fetch_array($data["orders_list"])) { ?>
+					<tbody> 
+						<?php while ($row = mysqli_fetch_array($data["orders"]['products'])) { ?>
 							<tr>
 								<td><a href="/orderscontroller/orderDetail/<?php echo $row['id']; ?>"><?php echo $row['code']; ?></a></td>
 								<td><?php echo $row['fullname']; ?></td>
@@ -87,9 +87,10 @@
 			<div class="card-footer clearfix">
 				<ul class="pagination pagination m-0 float-right">
 					<li class="page-item"><a class="page-link" href="#">«</a></li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<?php
+					for ($i = 1; $i <= $data["orders"]['totalPages']; $i++) { ?>
+						<li class="page-item"><a class="page-link" href="/orderscontroller/phantrang_click/orders/<?php echo $i; ?>"><?= $i ?></a></li>
+					<?php } ?>
 					<li class="page-item"><a class="page-link" href="#">»</a></li>
 				</ul>
 			</div>

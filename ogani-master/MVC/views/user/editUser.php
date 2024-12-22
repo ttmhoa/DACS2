@@ -37,11 +37,11 @@
                 <a href="#" onclick="enableEdit()">Sửa Hồ Sơ</a>
             </div>
             <ul class="menu">
-                <li><a href="/ogani-master/MVC/views/viewHom.php">Home</a></li>
-                <li><a href="/userController/showUser">Tài Khoản Của Tôi</a></li>
-                <li><a href="/ogani-master/MVC/views/user/changepasw.php">Đổi Mật Khẩu</a></li>
-                <li><a href="/ratingController/ratingNo">Đơn Mua</a></li>
-                <li><a href="#">Cài Đặt Thông Báo</a></li>
+                <li><a href="/Home">Home</a></li>
+                <li><a href="/userController/showUser">My Account</a></li>
+                <li><a href="/ogani-master/MVC/views/user/changepasw.php">Change Password</a></li>
+                <li><a href="/ratingController/ratingNo">Purchase Orders</a></li>
+                <li><a href="#">Notification Settings</a></li>
             </ul>
         </div>
 

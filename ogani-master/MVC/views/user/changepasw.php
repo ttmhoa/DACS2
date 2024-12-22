@@ -20,7 +20,7 @@ session_start();
         </div>
 
         <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm sản phẩm, thương hiệu và nhiều hơn nữa...">
+            <input type="text" placeholder="Search for products, brands, and more...">
             <button>🔍</button>
         </div>
 
@@ -39,39 +39,39 @@ session_start();
                 <a href="#" onclick="enableEdit()">Sửa Hồ Sơ</a>
             </div>
             <ul class="menu">
-                <li><a href="/ogani-master/MVC/views/viewHom.php">Home</a></li>
-                <li><a href="/userController/showUser">Tài Khoản Của Tôi</a></li>
-                <li><a href="/ogani-master/MVC/views/user/changepasw.php">Đổi Mật Khẩu</a></li>
-                <li><a href="/ratingController/ratingNo">Đơn Mua</a></li>
-                <li><a href="#">Cài Đặt Thông Báo</a></li>
+                <li><a href="/pagescontroller">Home</a></li>
+                <li><a href="/userController/showUser">My Account</a></li>
+                <li><a href="/ogani-master/MVC/views/user/changepasw.php">Change Password</a></li>
+                <li><a href="/ratingController/ratingNo">Purchase Orders</a></li>
+                <li><a href="#">Notification Settings</a></li>
             </ul>
         </div>
 
         <!-- Main content -->
         <div class="main-content">
-            <h1>Thêm mật khẩu</h1>
-            <p>Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho người khác</p>
+            <h1>Add Password</h1>
+            <p>To ensure account security, please do not share your password with others.</p>
 
             <div class="password-change-form">
                 <form onsubmit="submitPasswordChange(event)">
                     <div class="input-container">
-                        <label for="old-password">Mật khẩu cũ</label>
+                        <label for="old-password">Old Password</label>
                         <input type="password" id="old-password" name="old_password" required>
                         <!-- <span id="toggle-old" onclick="togglePasswordVisibility('old-password', 'toggle-old')">👁️</span> -->
                     </div>
                     <div class="input-container">
-                        <label for="new-password">Mật khẩu mới</label>
+                        <label for="new-password">New Password</label>
                         <input type="password" id="new-password" name="new_password" required>
                         <!-- <span id="toggle-new" onclick="togglePasswordVisibility('new-password', 'toggle-new')">👁️</span> -->
                     </div>
 
                     <div class="input-container">
-                        <label for="confirm-password">Xác nhận mật khẩu</label>
+                        <label for="confirm-password">Confirm Password</label>
                         <input type="password" id="confirm-password" name="confirm_password" required>
                         <!-- <span id="toggle-confirm" onclick="togglePasswordVisibility('confirm-password', 'toggle-confirm')">👁️</span> -->
                     </div>
 
-                    <button type="submit" class="submit-button">Xác Nhận</button>
+                    <button type="submit" class="submit-button">Confirm</button>
                 </form>
             </div>
         </div>

@@ -1,68 +1,60 @@
+<!-- Main content -->
+<section class="content">
+    <!-- Default box -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header pt-3">
 
-				<!-- Main content -->
-				<section class="content">
-					<!-- Default box -->
-					<div class="container-fluid">
-						<div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header pt-3">
-                       
-                                    <div class="card-body table-responsive p-3">								
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Product</th>
-                                                    <th width="100">Price</th>
-                                                    <th width="100">Qty</th>                                        
-                                                    <th width="100">Total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Call of Duty</td>
-                                                    <td>$10.00</td>                                        
-                                                    <td>2</td>
-                                                    <td>$20.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Call of Duty</td>
-                                                    <td>$10.00</td>                                        
-                                                    <td>2</td>
-                                                    <td>$20.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Call of Duty</td>
-                                                    <td>$10.00</td>                                        
-                                                    <td>2</td>
-                                                    <td>$20.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Call of Duty</td>
-                                                    <td>$10.00</td>                                        
-                                                    <td>2</td>
-                                                    <td>$20.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="3" class="text-right">Subtotal:</th>
-                                                    <td>$80.00</td>
-                                                </tr>
-                                                
-                                                <tr>
-                                                    <th colspan="3" class="text-right">Shipping:</th>
-                                                    <td>$5.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <th colspan="3" class="text-right">Grand Total:</th>
-                                                    <td>$85.00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>								
-                                    </div>                            
-                                </div>
-                            </div>
-                  
+                        <div class="card-body table-responsive p-3">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th width="100">code</th>
+                                        <th width="100">order_status</th>
+
+                                        <th width="100">phone_number</th>
+                                        <th width="100">order_date</th>
+                                        <th width="100">address</th>
+                                        <th width="100">note</th>
+                                        <th width="100">total_money</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php while ($row = mysqli_fetch_array($data["get_all_orders"])) { ?>
+                                        <tr>
+                                            <td><?php echo $row["code"]; ?></td>
+                                            <td> <?php
+
+                                                    if ($row['order_status'] == 0) {
+                                                        echo '<p class="text-danger">Pending</p>';
+                                                    } else if ($row['order_status'] == 1) {
+                                                        echo '<p class="text-success">Delivering</p>';
+                                                    } else if ($row['order_status'] == 2) {
+                                                        echo '<p class="text-success">Delivered</p>';
+                                                    } elseif ($row['order_status'] == -1) {
+                                                        echo '<p class="text-danger">Cancelled</p>';
+                                                    } else {
+                                                        echo '<p class="text-danger">Returned</p>';
+                                                    }
+
+                                                    ?></td>
+                                            <td><?php echo $row["phone_number"]; ?></td>
+                                            <td><?php echo $row["order_date"]; ?></td>
+                                            <td><?php echo $row["address"]; ?></td>
+                                            <td><?php echo $row["note"]; ?></td>
+                                            <td><?php echo $row["total_money"]; ?></td>
+
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
                         </div>
-					</div>
-					<!-- /.card -->
-				</section>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /.card -->
+</section>

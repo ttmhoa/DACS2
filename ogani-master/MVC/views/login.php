@@ -74,15 +74,15 @@
 
     <!-- Form đăng nhập -->
     <div class="login-container">
-        <h2>Đăng nhập</h2>
+        <h2>Login</h2>
         <form id="login-form" method="POST">
             <input type="text" id="username" name="username" placeholder="Tên đăng nhập" required>
             <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
-            <input type="submit" value="Đăng nhập">
+            <input type="submit" value="Login">
         </form>
         <div id="error-message" class="error-message" style="color: red; display: none;"></div>
         <div class="signup-link">
-            <p>Chưa có tài khoản? <a href="/ogani-master//MVC/views/signup.php">Tạo tài khoản mới</a></p>
+            <p>Don't have an account? <a href="/ogani-master//MVC/views/signup.php">Create a new account</a></p>
         </div>
     </div>
 

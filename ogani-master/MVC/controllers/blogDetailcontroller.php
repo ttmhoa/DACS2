@@ -18,24 +18,40 @@ class blogDetailcontroller extends Controller
     }
     public function getBlog($id)
     {
-        $user_Id = $_SESSION['user']['id'];
+        // Lấy user_Id từ session nếu có, nếu không thì gán là null
+        $user_Id = $_SESSION['user']['id'] ?? null;
+
+        // Lấy model liên quan
         $contendBlogModel = $this->model("modelblogdetail");
-        $contendblog = $contendBlogModel->getBlog($id);
         $commentModel = $this->model("modelblogdetail");
-        $comments = $commentModel->getCommentsByBlogId($id);
         $userModel = $this->model("modelblogdetail");
-        $user = $userModel->getUserInfo($user_Id);
-        $topBlog = $contendBlogModel->getLatestBlogs();
 
+        // Lấy dữ liệu blog, nếu không có gán giá trị mặc định
+        $contendblog = $contendBlogModel->getBlog($id) ?? ['content' => '', 'count_comment' => 0];
 
-        //  var_dump($comments);
+        // Lấy danh sách comment, nếu không có gán là mảng rỗng
+        $comments = $commentModel->getCommentsByBlogId($id) ?? [];
+
+        // Lấy thông tin người dùng, nếu không có gán giá trị mặc định
+        $user = $user_Id ? $userModel->getUserInfo($user_Id) : [
+            'fullname' => 'Guest',
+            'image' => 'default-avatar.png'
+        ];
+
+        // Lấy danh sách blog mới nhất, nếu không có gán là mảng rỗng
+        $topBlog = $contendBlogModel->getLatestBlogs() ?? [];
+
+        // Xử lý màu "like" cho từng comment
         $likeColors = [];
         foreach ($comments as $comment) {
-            $comment_id = $comment['id'];
-            $likeColorModel = $this->model("modelblogdetail");
-            $likeColors[$comment_id] = $likeColorModel->checkComment($user_Id, $comment_id)['like'] ?? 0;
+            $comment_id = $comment['id'] ?? null;
+            if ($comment_id) {
+                $likeColorModel = $this->model("modelblogdetail");
+                $likeColors[$comment_id] = $likeColorModel->checkComment($user_Id, $comment_id)['like'] ?? 0;
+            }
         }
 
+        // Truyền dữ liệu vào view
         $this->view("viewHom", [
             "page" => "blogdetail",
             "contendblog" => $contendblog['content'],
@@ -44,9 +60,10 @@ class blogDetailcontroller extends Controller
             'fullname' => $user['fullname'],
             "count_comment" => $contendblog['count_comment'],
             'image' => $user['image'],
-            "topBlog" => $topBlog ,
+            "topBlog" => $topBlog,
         ]);
     }
+
 
 
 

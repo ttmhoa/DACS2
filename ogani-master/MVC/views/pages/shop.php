@@ -18,13 +18,13 @@
             </div>
             <div class="col-lg-9">
                 <div class="hero__search">
-                    <div class="hero__search__form">
+                    <div class="hero__search__form"> 
                         <form action="#">
                             <div class="hero__search__categories">
                                 All Categories
                                 <span class="arrow_carrot-down"></span>
                             </div>
-                            <input type="text" name="search_name" id="search_name" class="form-control" placeholder="What do yo u need?">
+                            <input type="text" name="search_name" id="search_name" class="form-control" placeholder="What do you need?">
                             <!-- <button type="submit" class="site-btn">SEARCH</button> -->
                         </form>
                     </div>
@@ -266,7 +266,6 @@
                 <div class="product__pagination">
 
                     <?php
-
                     for ($i = 1; $i <= $data["Products"]['totalPages']; $i++) { ?>
                         <a href="/shopcontroller/phantrang_click/shop/<?php echo $i; ?>"><?= $i ?></a>
                     <?php } ?>

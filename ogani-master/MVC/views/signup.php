@@ -74,11 +74,11 @@
                     </div>
     </header>
     <div class="signup-container">
-        <h2>Tạo tài khoản mới</h2>
+        <h2>Create a new account</h2>
         <form id="signup-form" method="POST">
             <div>
-                <label for="fullname">Họ và tên</label>
-                <input type="text" id="fullname" name="fullname" placeholder="Họ và tên" required>
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
             </div>
 
             <div>
@@ -87,36 +87,35 @@
             </div>
 
             <div>
-                <label for="phone_number">Số điện thoại</label>
-                <input type="text" id="phone_number" name="phone_number" placeholder="Số điện thoại" required>
+                <label for="phone_number">Phone Number</label>
+                <input type="text" id="phone_number" name="phone_number" placeholder="Phone Number" required>
             </div>
 
             <div>
-                <label for="address">Địa chỉ</label>
-                <input type="text" id="address" name="address" placeholder="Địa chỉ" required>
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Address" required>
             </div>
 
             <div>
-                <label for="password">Mật khẩu</label>
-                <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
             </div>
 
             <div>
-                <label for="confirm-password">Xác nhận mật khẩu</label>
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Xác nhận mật khẩu" required>
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
             </div>
 
             <div>
-                <label for="role_id">Chọn vai trò</label>
                 <select id="role_id" name="role_id" required>
-                    <option value="">Chọn vai trò</option>
+                    <option value="">Select Role</option>
                     <option value="1">Admin</option>
                     <option value="2">User</option>
                 </select>
             </div>
 
             <div>
-                <input type="submit" value="Đăng ký">
+                <input type="submit" value="Sign Up">
             </div>
         </form>
         <div id="error-message" style="display: none;"></div>
@@ -124,7 +123,7 @@
     <!-- <div id="error-message" style="display: none;"></div> -->
     <div id="success-message" class="success-message"></div>
     <div class="login-link">
-        <p>Đã có tài khoản? <a href="./dangnhap.html">Đăng nhập ngay</a></p>
+        <p>Already have an account? <a href="/ogani-master/MVC/views/login.php">Login Now</a></p>
     </div>
     </div>
 

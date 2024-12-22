@@ -6,7 +6,7 @@ class modelshop extends DB
     $kq = mysqli_query($this->con ,$sql); 
     return $kq;
     }
-
+ 
     public function get3latest() {
         $sql = "SELECT *FROM product ORDER BY created_at DESC LIMIT 3;";
         $kq = mysqli_query($this->con ,$sql); 

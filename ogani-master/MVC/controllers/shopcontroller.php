@@ -12,7 +12,7 @@ class shopcontroller extends Controller{
         "feature2"=>$teo->get3related(),
         "Products"=>$teo->phantrang_click_model($current_page),
         
-
+ 
     ]);
     }
     function phantrang_click($parampage,$current_page){
