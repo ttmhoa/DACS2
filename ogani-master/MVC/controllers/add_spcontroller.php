@@ -20,77 +20,62 @@ class add_spcontroller extends Controller
         $teo = $this->model("add_sp");
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $requiredFields = ['title', 'category_id', 'price', 'description', 'stock'];
-            $missingFields = [];
-
+            // Define required fields
+            $requiredFields = ['title', 'description', 'stock', 'price', 'category_id'];
+            $data = [];
+    
+            // Collect and trim input data
             foreach ($requiredFields as $field) {
-                if (empty($_POST[$field])) {
-                    $missingFields[] = $field;
+                if (isset($_POST[$field])) {
+                    $data[$field] = trim($_POST[$field]);
+                } else {
+                    $data[$field] = null; // Default to null if not set
                 }
             }
-
-            if (!empty($missingFields)) {
-                $missingFieldsString = implode(", ", $missingFields);
-
-                // Thay vì sử dụng header để chuyển hướng, hãy lưu thông báo vào session
-                session_start();
-                $_SESSION['error'] = "LACKING FIELDS " . $missingFieldsString;
-
-                // Chuyển hướng đến trang sản phẩm
-                header("Location: /add_spcontroller");
+    
+            $fileImage = $_FILES['fileimage'];
+    
+            // Check for empty required fields
+            if (in_array(null, $data) || $fileImage['error'] == UPLOAD_ERR_NO_FILE) {
+                header("Location: /catogoriescontroller");
                 exit();
-            } else {
-                // Xử lý tải lên tệp
-                if (isset($_FILES['fileimage']) && $_FILES['fileimage']['error'] == UPLOAD_ERR_OK) {
-                    $uploadsDir = 'ogani-master/img/'; // Thư mục lưu trữ ảnh
-                    $imageName = basename($_FILES['fileimage']['name']);
-                    $imagePath = $uploadsDir . $imageName;
-
-                    // Di chuyển tệp tải lên vào thư mục
-                    if (move_uploaded_file($_FILES['fileimage']['tmp_name'], $imagePath)) {
-                        // Tạo mảng dữ liệu để thêm sản phẩm
-                        $create_sp = [
-
-                            'title' => $_POST['title'],
-                            'description' => $_POST['description'],
-                            'updated_at' => date('Y-m-d H:i:s'),
-                            'created_at' => date('Y-m-d H:i:s'),
-                            'image' => $imagePath,
-                            'thumbnail' => $imagePath, // Đường dẫn lưu ảnh
-                            'stock' => $_POST['stock'],
-                            'price' => $_POST['price'],
-                            'category_id' => $_POST['category_id']  // Đảm bảo có category_id
-                        ];
-
-                        // Gọi phương thức thêm sản phẩm
-                        if ($teo->create_newpProduct($create_sp)) {
-                            // Chuyển hướng đến trang danh sách sản phẩm
-                            header("Location: /productscontroller");
-                            exit();
-                        } else {
-                            session_start();
-                            $_SESSION['error'] = "CANNOT ADD PRODUCT";
-
-                            // Chuyển hướng đến trang sản phẩm
-                            header("Location: /add_spcontroller");
-                            exit();
-                        }
-                    } else {
-                        session_start();
-                        $_SESSION['error'] = "PLEASE CHOOSE IMAGE";
-
-                        // Chuyển hướng đến trang sản phẩm
-                        header("Location: /add_spcontroller");
-                        exit();
-                    }
-                } else {
-                    session_start();
-                    $_SESSION['error'] = "PLEASE CHOOSE IMAGE";
-
-                    // Chuyển hướng đến trang sản phẩm
+            }
+    
+            // File upload path
+            $uploadDir = 'ogani-master/img/categories/';
+            $fileName = pathinfo($fileImage['name'], PATHINFO_FILENAME);
+            $fileExt = pathinfo($fileImage['name'], PATHINFO_EXTENSION);
+    
+            // Create a new file name
+            $newFileName = "cat-" . uniqid() . "." . $fileExt;
+    
+            // Check if the file already exists and rename if necessary
+            while (file_exists($uploadDir . $newFileName)) {
+                $newFileName = "cat-" . uniqid() . "." . $fileExt;
+            }
+    
+            // Move the uploaded file to the designated directory
+            if (move_uploaded_file($fileImage['tmp_name'], $uploadDir . $newFileName)) {
+                $imagePath = "/ogani-master/img/categories/" . $newFileName;
+    
+                $create_cate = [
+                    'title' => $data['title'],
+                    'description' => $data['description'],
+                    'updated_at' => date('Y-m-d H:i:s'),
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'image' => $imagePath,
+                    'thumbnail' => $imagePath, // Use the same path for thumbnail if needed
+                    'stock' => $data['stock'],
+                    'price' => $data['price'],
+                    'category_id' => $data['category_id']
+                ];
+    
+                if ($teo->create_newpProduct($create_cate)) {
                     header("Location: /add_spcontroller");
                     exit();
                 }
+            } else {
+                echo "Error uploading file.";
             }
         }
     }

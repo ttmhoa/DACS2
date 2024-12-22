@@ -6,7 +6,8 @@ class Hom extends Controller{
         $teo = $this->model("SanPhamHom");
         $kq= $teo->GetSP();
        $this->view("viewHom",
-       ["page"=>"news",
+       [
+        "page"=>"news",
        "categories"=>$kq,
        "feature"=>$teo->GetSP(),
        "detail"=>$teo->getAll(),
@@ -36,3 +37,4 @@ class Hom extends Controller{
 }
 ?>
 
+ 

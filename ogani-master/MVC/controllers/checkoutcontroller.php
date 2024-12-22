@@ -20,7 +20,7 @@ function store() {
             foreach ($requiredFields as $field) {
                 if (empty($_POST[$field])) {
                     $missingFields[] = $field; // Lưu lại trường thiếu
-                }
+                } 
             }
 
             // Nếu có trường thiếu, thông báo cho người dùng
@@ -58,7 +58,8 @@ function store() {
             }
         }
     } else {
-        echo "Giỏ hàng không rỗng.";
+        header("Location: /checkoutcontroller");
+        exit();
     }
 }
     public function storeOrderDetail($id_orders)

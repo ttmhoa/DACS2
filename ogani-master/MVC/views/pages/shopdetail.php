@@ -107,18 +107,18 @@
                          </div>
                          <div class="product__details__price">$<?php echo htmlspecialchars($data["detailsp2"]['price']); ?></div>
                          <p><?php echo htmlspecialchars($data["detailsp2"]['description']); ?></p>
-                     <?php endif; ?>
-
-
-                     <div class="product__details__quantity">
+                    
+                        
+                        <a href="/shopCardcontroller/store/<?php echo htmlspecialchars($data["detailsp2"]['id']); ?>" class="primary-btn">ADD TO CARD</a>                
+                        <?php endif; ?>
+                        <div class="product__details__quantity">
                          <div class="quantity">
                              <div class="pro-qty">
                                  <input type="text" value="1">
                              </div>
                          </div>
                      </div>
-                     <a href="#" class="primary-btn">ADD TO CARD</a>
-                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                     
                      <ul>
                          <li><b>Availability</b> <span>In Stock</span></li>
                          <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>

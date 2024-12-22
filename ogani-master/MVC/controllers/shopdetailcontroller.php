@@ -19,7 +19,7 @@ class shopdetailcontroller extends Controller
     }
 
     function Viewnews($parampage, $id)
-    {
+    { 
         $teo = $this->model("modelshopDT");
         $sp = $teo->getProduct($id);
         $id_category = $teo->getcategory_id($id);

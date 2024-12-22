@@ -1,6 +1,6 @@
 <?php
 class  orders extends DB
-{
+{ 
 
     public function get_list_orders()
     {
@@ -8,6 +8,8 @@ class  orders extends DB
         $kq = mysqli_query($this->con, $sql);
         return $kq;
     }
+
+    
     public function update_status($order_id, $data)
     {
         $sql = "UPDATE orders SET order_status = $data WHERE id = $order_id";
@@ -18,6 +20,7 @@ class  orders extends DB
         }
         echo "Error: " . $sql . "<br>" . mysqli_error($this->con);
     }
+
     public function get_order_byid($order_id)
     {
         if (!is_numeric($order_id)) {
@@ -38,6 +41,31 @@ class  orders extends DB
         }
     }
 
+    public function phantrang_click_model($current_page_click)
+{
+    $item_per_page = 5;
+    $current_page = $current_page_click;
+    $offset = ($current_page - 1) * $item_per_page;
+
+    // Fetch total number of products
+    $totalQuery = "SELECT COUNT(*) as total FROM orders";
+    $totalResult = mysqli_query($this->con, $totalQuery);
+    $totalRow = mysqli_fetch_assoc($totalResult);
+    $totalRecords = $totalRow['total'];
+
+    // Fetch products for the current page
+    $products = "SELECT * FROM orders ORDER BY id ASC LIMIT $item_per_page OFFSET $offset";
+    $kq = mysqli_query($this->con, $products);
+
+    // Calculate total pages
+    $totalPages = ceil($totalRecords / $item_per_page);
+
+    return [
+        'products' => $kq,
+        'totalPages' => $totalPages
+    ];
+}
+
     public function get_total_cancelled_orders($order_id)
     {
         $sql = "SELECT product_id, num FROM order_details WHERE order_id = $order_id";
@@ -56,7 +84,7 @@ class  orders extends DB
         $kq = mysqli_query($this->con, $sql);
         return $kq;
     }
-
+ 
 
     public function update_stock($order_id)
     {
