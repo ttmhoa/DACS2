@@ -9,17 +9,17 @@
                         <span>All departments</span>
                     </div>
                     <ul>
-                        <li><a href="#">Fresh Meat</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruit & Nut Gifts</a></li>
-                        <li><a href="#">Fresh Berries</a></li>
-                        <li><a href="#">Ocean Foods</a></li>
-                        <li><a href="#">Butter & Eggs</a></li>
-                        <li><a href="#">Fastfood</a></li>
-                        <li><a href="#">Fresh Onion</a></li>
-                        <li><a href="#">Papayaya & Crisps</a></li>
-                        <li><a href="#">Oatmeal</a></li>
-                        <li><a href="#">Fresh Bananas</a></li>
+                        <li><a class="search_Type" data-value ="Fresh Meat">Fresh Meat</a></li>
+                        <li><a class="search_Type" data-value ="Vegetables" >Vegetables</a></li>
+                        <li><a class="search_Type" data-value ="Fruit & Nut Gifts">Fruit & Nut Gifts</a></li>
+                        <li><a class="search_Type" data-value ="Berries"> Berries</a></li>
+                        <li><a class="search_Type" data-value ="Ocean Foods">Ocean Foods</a></li>
+                        <li><a class="search_Type" data-value ="Butter & Eggs">Butter & Eggs</a></li>
+                        <li><a class="search_Type" data-value ="Fastfood">Fastfood</a></li>
+                        <li><a class="search_Type" data-value ="Fresh Onion">Fresh Onion</a></li>
+                        <li><a class="search_Type" data-value ="Papayaya & Crisps">Papayaya & Crisps</a></li>
+                        <li><a class="search_Type" data-value ="Oatmeal">Oatmeal</a></li>
+                        <li><a class="search_Type" data-value ="Fresh Bananas">Fresh Bananas</a></li>
                     </ul>
                 </div>
             </div>
@@ -177,30 +177,40 @@
             </div>
 
         </div>
-
-
         <div class="col-lg-12">
+
             <div class="product__pagination blog__pagination">
-                <a href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                <?php
+                $currentPage = $data['currentPage'];
+                $totalPages = $data['totalPages'];
+                ?>
+                <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                    <a href="?page=<?php echo $i; ?>"
+                        style="<?php echo $i == $currentPage ? 'color: #fff; background-color: #8CC63F; border-color: green;' : ''; ?>">
+                        <?php echo $i; ?>
+                    </a>
+                <?php endfor; ?>
+
+                <?php if ($currentPage < $totalPages): ?>
+                    <a style="padding-top: 5.8px;" href="?page=<?php echo $currentPage + 1; ?>"><i class="fa fa-long-arrow-right"></i></a>
+                <?php endif; ?>
             </div>
+
+
         </div>
-    </div>
     </div>
     </div>
     </div>
 </section>
 <script type="text/javascript">
     document.getElementById("search_name").addEventListener("input", async function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
-        const search_name = this.value; 
+        const search_name = this.value;
 
         if (!search_name) {
             console.log("Vui lòng nhập từ khóa tìm kiếm.");
-            return; 
+            return;
         }
 
         try {
@@ -210,11 +220,11 @@
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    search_name: search_name 
+                    search_name: search_name
                 }),
             });
 
-            const responseText = await response.text(); 
+            const responseText = await response.text();
 
             if (!responseText) {
                 console.error("Phản hồi từ server rỗng");
@@ -228,7 +238,7 @@
                 if (data.success) {
                     const rowElement = document.getElementById("row");
                     if (rowElement) {
-                        rowElement.innerHTML = data.html; 
+                        rowElement.innerHTML = data.html;
                         rowElement.hidden = false;
                     } else {
                         console.error("Phần tử #row không tồn tại.");
@@ -238,7 +248,7 @@
                 }
             } catch (jsonError) {
                 console.error("Lỗi khi parse JSON:", jsonError);
-                console.log("Phản hồi từ server:", responseText); 
+                console.log("Phản hồi từ server:", responseText);
                 alert("Lỗi khi phân tích dữ liệu từ server.");
             }
 
@@ -251,7 +261,7 @@
 
     document.querySelectorAll(".search_Type").forEach(function(element) {
         element.addEventListener("click", async function(event) {
-            event.preventDefault(); 
+            event.preventDefault();
             const category = this.getAttribute("data-value");
 
             try {
@@ -273,7 +283,7 @@
                 if (data.success) {
                     const rowElement = document.getElementById("row");
                     if (rowElement) {
-                        rowElement.innerHTML = data.html; 
+                        rowElement.innerHTML = data.html;
                         rowElement.hidden = false;
                     } else {
                         console.error("Phần tử #row không tồn tại.");

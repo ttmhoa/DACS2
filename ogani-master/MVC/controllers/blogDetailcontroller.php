@@ -25,6 +25,9 @@ class blogDetailcontroller extends Controller
         $comments = $commentModel->getCommentsByBlogId($id);
         $userModel = $this->model("modelblogdetail");
         $user = $userModel->getUserInfo($user_Id);
+        $topBlog = $contendBlogModel->getLatestBlogs();
+
+
         //  var_dump($comments);
         $likeColors = [];
         foreach ($comments as $comment) {
@@ -41,6 +44,7 @@ class blogDetailcontroller extends Controller
             'fullname' => $user['fullname'],
             "count_comment" => $contendblog['count_comment'],
             'image' => $user['image'],
+            "topBlog" => $topBlog ,
         ]);
     }
 

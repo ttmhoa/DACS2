@@ -42,6 +42,30 @@ class  modelblogdetail extends DB
             'count_comment' => $data['count_comment']
         ];
     }
+    public function getLatestBlogs()
+    {
+        $query = "SELECT * FROM blog ORDER BY created_at DESC LIMIT 3";
+        $stmt = mysqli_prepare($this->con, $query);
+
+        if (!$stmt) {
+            die("Failed to prepare statement: " . mysqli_error($this->con));
+        }
+
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt); 
+
+        if (!$result) {
+            die("Failed to fetch results: " . mysqli_error($this->con));
+        }
+
+        $blogs = []; 
+        while ($row = mysqli_fetch_assoc($result)) {
+            $blogs[] = $row; 
+        }
+
+        return $blogs; 
+    }
+
 
     public function comment($user_id, $blog_id, $comment)
     {

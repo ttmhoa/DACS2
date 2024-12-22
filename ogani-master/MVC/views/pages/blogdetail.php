@@ -263,51 +263,38 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="/ogani-master/img/blog/blog-1.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="/ogani-master/img/blog/blog-2.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="/ogani-master/img/blog/blog-3.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">Visit the clean farm in the US</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+            <style>
+                .blog__item__pic img {
+                    width: 100%;
+                    /* Đảm bảo ảnh chiếm toàn bộ chiều rộng của container */
+                    height: 350px;
+                    /* Cố định chiều cao */
+                    object-fit: cover;
+                    /* Giữ tỷ lệ ảnh, cắt phần thừa nếu cần */
+                    border-radius: 5px;
+                    /* Tùy chọn: làm mềm góc cạnh của ảnh */
+                }
+            </style>
+            <?php foreach ($data['topBlog'] as $blog): ?>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="<?php echo ($blog['image']); ?>" alt="Hình ảnh bài viết">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li>
+                                    <i class="fa fa-calendar-o"></i>
+                                    <?php echo date("F j, Y", strtotime($blog['created_at'])); ?>
+                                </li>
+                                <li><i class="fa fa-comment-o"></i><?php echo ($blog['count_comment']); ?> bình luận</li>
+                            </ul>
+                            <h5><a href="#"><?php echo ($blog['title']); ?></a></h5>
+                            <p><?php echo ($blog['descript']); ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
@@ -316,7 +303,7 @@
     document.getElementById("submitButton").addEventListener('click', async function(event) {
         event.preventDefault();
         const pathArray = window.location.pathname.split('/');
-        const blog_id = pathArray[pathArray.length - 1]; 
+        const blog_id = pathArray[pathArray.length - 1];
         let commentInput = document.getElementById('message').value;
 
         try {
@@ -327,7 +314,7 @@
                 },
                 body: JSON.stringify({
                     comment: commentInput,
-                    blog_id: blog_id 
+                    blog_id: blog_id
                 })
             });
 
@@ -337,14 +324,14 @@
 
             const data = await response.json();
             if (data.success) {
-                addToComment(data); 
-                document.getElementById('message').value = ""; 
+                addToComment(data);
+                document.getElementById('message').value = "";
             } else {
                 console.error("Server response error:", data.message);
                 alert("Lỗi khi gửi bình luận: " + data.message);
             }
             if (data.message === "User chưa đăng nhập") {
-                window.location.href = "/ogani-master/MVC/views/login.php"; 
+                window.location.href = "/ogani-master/MVC/views/login.php";
             }
         } catch (error) {
             console.error("Fetch error:", error);
@@ -387,17 +374,17 @@
 `;
 
 
-        
+
         commentList.prepend(newComment);
 
-        
+
         attachLikeEvents();
     }
 
     // Hàm gắn sự kiện like cho các nút like
     function attachLikeEvents() {
         document.querySelectorAll('.like-button').forEach(button => {
-        
+
             button.removeEventListener('click', likeButtonHandler);
             button.addEventListener('click', likeButtonHandler);
         });
@@ -407,14 +394,14 @@
     async function likeButtonHandler(event) {
         event.preventDefault();
 
-        const button = this; 
-        const likeIcon = button.querySelector('.fa-thumbs-up'); 
-        const likeCountSpan = button.querySelector('.like-count'); 
+        const button = this;
+        const likeIcon = button.querySelector('.fa-thumbs-up');
+        const likeCountSpan = button.querySelector('.like-count');
         const commentId = button.getAttribute('data-comment-id');
 
         if (!likeCountSpan) {
             console.error("Không tìm thấy phần tử .like-count trong nút like.");
-            return; 
+            return;
         }
 
         try {
@@ -436,7 +423,7 @@
             console.log("Server response: ", data);
 
             if (data.success) {
-        
+
                 if (data.liked) {
                     likeIcon.classList.add('text-success'); // Thêm màu xanh
                     likeIcon.classList.remove('text-muted'); // Bỏ màu xám
@@ -446,14 +433,14 @@
                 }
 
                 // Cập nhật số lượt like
-                const newLikeCount = data.likeCount || 0; 
-                button.setAttribute('data-likes', newLikeCount); 
-                likeCountSpan.textContent = newLikeCount; 
+                const newLikeCount = data.likeCount || 0;
+                button.setAttribute('data-likes', newLikeCount);
+                likeCountSpan.textContent = newLikeCount;
             } else {
                 console.error("Server response error:", data.message);
             }
             if (data.message === "Bạn cần đăng nhập để thực hiện hành động này.") {
-                window.location.href = "/ogani-master/MVC/views/login.php"; 
+                window.location.href = "/ogani-master/MVC/views/login.php";
             }
 
         } catch (error) {
@@ -464,19 +451,19 @@
 
 
     document.addEventListener('DOMContentLoaded', function() {
-        attachLikeEvents(); 
+        attachLikeEvents();
     });
     async function likeButtonHandler(event) {
         event.preventDefault();
 
-        const button = this; 
+        const button = this;
         const likeIcon = button.querySelector('.fa-thumbs-up'); // Biểu tượng like
         const likeCountSpan = button.querySelector('.like-count'); // Phần tử hiển thị số lượt like
         const commentId = button.getAttribute('data-comment-id');
 
         if (!likeCountSpan) {
             console.error("Không tìm thấy phần tử .like-count trong nút like.");
-            return; 
+            return;
         }
 
         try {
@@ -498,7 +485,7 @@
             console.log("Server response: ", data);
 
             if (data.success) {
-                
+
                 if (data.userLike === 1) { // Kiểm tra nếu trạng thái 'like' là 1
                     likeIcon.classList.add('text-success'); // Thêm màu xanh
                     likeIcon.classList.remove('text-muted'); // Bỏ màu xám
@@ -516,7 +503,7 @@
                 console.error("Server response error:", data.message);
             }
             if (data.message === "Bạn cần đăng nhập để thực hiện hành động này.") {
-                window.location.href = "/ogani-master/MVC/views/login.php"; 
+                window.location.href = "/ogani-master/MVC/views/login.php";
             }
 
         } catch (error) {
@@ -525,13 +512,13 @@
         }
     }
 
-    
+
     document.addEventListener('DOMContentLoaded', function() {
-        attachLikeEvents(); 
+        attachLikeEvents();
     });
     document.querySelectorAll(".search_Type").forEach(function(element) {
         element.addEventListener("click", async function(event) {
-            event.preventDefault(); 
+            event.preventDefault();
 
             // Lấy giá trị từ thuộc tính data-value
             const category = this.getAttribute("data-value");
@@ -553,11 +540,11 @@
 
                 const data = await response.json();
 
-                
+
                 if (data.success) {
                     const rowElement = document.getElementById("row");
                     if (rowElement) {
-                        rowElement.innerHTML = data.html; 
+                        rowElement.innerHTML = data.html;
                         rowElement.hidden = false;
                     } else {
                         console.error("Phần tử #row không tồn tại.");

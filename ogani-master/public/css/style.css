@@ -83,9 +83,41 @@ p {
 	margin: 0 0 15px 0;
 }
 
-img {
-	max-width: 100%;
+/* Áp dụng max-width cho tất cả ảnh trừ ảnh có class user-avatar */
+img:not(.user-avatar) {
+    max-width: 100%; /* Đảm bảo chỉ áp dụng cho các ảnh không có class .user-avatar */
 }
+
+.user-info {
+    display: flex;              /* Kích hoạt Flexbox */
+    align-items: center;        /* Canh giữa theo chiều dọc */
+    gap: 10px;                  /* Khoảng cách giữa ảnh và tên */
+}
+
+.user-avatar {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+}
+
+
+.user-details {
+    display: flex;              /* Sắp xếp chi tiết theo hàng dọc */
+    flex-direction: column;
+    justify-content: center;    /* Canh giữa nội dung */
+}
+
+.name {
+    font-weight: bold;          /* Đặt font chữ đậm cho tên */
+    color: #333;                /* Màu chữ */
+}
+
+.stars {
+    color: #FFD700;             /* Màu vàng cho sao */
+    font-size: 14px;            /* Kích thước sao */
+}
+
 
 input:focus,
 select:focus,
@@ -1861,6 +1893,8 @@ ol {
 	color: #666666;
 }
 
+
+
 /*---------------------
   Shop Details
 -----------------------*/
@@ -2326,6 +2360,7 @@ ol {
 	padding: 14px 20px 12px;
 	border-radius: 25px;
 }
+
 
 .blog__item__text .blog__btn span {
 	position: relative;

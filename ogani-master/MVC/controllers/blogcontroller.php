@@ -19,22 +19,22 @@ class blogcontroller extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $response = [];
 
-            
+
             $title = isset($_POST['title']) ? $_POST['title'] : '';
             $text = isset($_POST['text']) ? $_POST['text'] : '';
             $descript = isset($_POST['descript']) ? $_POST['descript'] : '';
-            $category = isset($_POST['category']) ? $_POST['category'] : ''; 
+            $category = isset($_POST['category']) ? $_POST['category'] : '';
 
-            
+
             $imageUploadPath = '';
             $imageDirectory = 'D:/XAMP/htdocs/DACS2/ogani-master/img/blog';
 
-            
+
             if (!is_dir($imageDirectory)) {
                 mkdir($imageDirectory, 0777, true);
             }
 
-            
+
             if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
                 $imageTmpPath = $_FILES['image']['tmp_name'];
                 $imageName = $_FILES['image']['name'];
@@ -49,24 +49,24 @@ class blogcontroller extends Controller
                 $response['image'] = null;
             }
 
-        
+
             $response['success'] = true;
             $response['data'] = [
                 'title' => $title,
                 'text' => $text,
                 'image' => $response['image'],
                 'descript' => $descript,
-                'category' => $category 
+                'category' => $category
             ];
 
-            
+
             $user_id = $_SESSION['user']['id'];
 
-            
+
             $blogModel = $this->model('modelBlog');
 
-            
-            $save = $blogModel->createBlog($user_id, $title, $text, $response['image'], $descript, $category); 
+
+            $save = $blogModel->createBlog($user_id, $title, $text, $response['image'], $descript, $category);
 
             if ($save) {
                 $response['message'] = "Tạo bài viết thành công";
@@ -77,37 +77,50 @@ class blogcontroller extends Controller
             }
         }
     }
-
     public function showBlog()
     {
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        echo("Page: " . $page); 
+        $limit = 4;
+        $offset = ($page - 1) * $limit;
         $listBlogModel = $this->model("modelBlog");
-        $listblog = $listBlogModel->getBlog();        
-        $this->view("viewHom", ["page" => "blog", "listblog" => $listblog]);
+        $listblog = $listBlogModel->getBlog($offset, $limit);
+        $totalBlogs = $listBlogModel->getTotalBlogs();
+        $totalPages = ceil($totalBlogs / $limit); 
+       
+
+        $this->view("viewHom", [
+            "page" => "blog",
+            "listblog" => $listblog,
+            "totalPages" => $totalPages,
+            "currentPage" => $page,
+           
+        ]);
     }
     public function search()
-{
-    
-    $data = json_decode(file_get_contents("php://input"), true);
+    {
 
-    if (isset($data['search_name'])) {
-        $search_name = $data['search_name'];
+        $data = json_decode(file_get_contents("php://input"), true);
 
-        
-        if ($search_name == 'Food' || $search_name == 'Beauty' || $search_name == 'Vegetables' || $search_name == 'Fruit') {
-            $this->search_Type($search_name);
-        } elseif ($search_name == 'All') {
-            
-            $this->showBlog();
-        }
+        if (isset($data['search_name'])) {
+            $search_name = $data['search_name'];
 
-        
-        $searchModel = $this->model('modelBlog');
-        $result = $searchModel->search_model($search_name);
-        $output = "";
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $output .= '
+            if ($search_name == 'Food' || $search_name == 'Beauty' || $search_name == 'Vegetables' || $search_name == 'Fruit') {
+                $this->search_Type($search_name);
+            } elseif ($search_name == 'All') {
+
+                $this->showBlog();
+            }
+
+
+            $searchModel = $this->model('modelBlog');
+            $result = $searchModel->search_model($search_name);
+            $output = "";
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $output .= '
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="blog__item">
                             <div class="blog__item__pic">
@@ -125,19 +138,19 @@ class blogcontroller extends Controller
                         </div>
                     </div>
                 ';
+                }
+            } else {
+                $output .= '<p>Không tìm thấy kết quả nào.</p>';
             }
-        } else {
-            $output .= '<p>Không tìm thấy kết quả nào.</p>';
-        }
 
-    
-        echo json_encode(['success' => true, 'html' => $output]);
-        exit;
-    } else {
-        
-        echo json_encode(['success' => false, 'html' => '']);
+
+            echo json_encode(['success' => true, 'html' => $output]);
+            exit;
+        } else {
+
+            echo json_encode(['success' => false, 'html' => '']);
+        }
     }
-}
 
 
 
@@ -147,7 +160,7 @@ class blogcontroller extends Controller
             $data = json_decode(file_get_contents("php://input"), true);
             $search_name = $data['search_name'] ?? '';
 
-            
+
             $serchModel = $this->model('modelBlog');
             $result = $serchModel->search_Type($search_name);
 
@@ -177,11 +190,11 @@ class blogcontroller extends Controller
                 $output = '<p>Không tìm thấy kết quả nào.</p>';
             }
 
-            
+
             echo json_encode(['success' => true, 'html' => $output]);
             exit;
         } else {
-            
+
             echo json_encode(['success' => false, 'message' => 'Chỉ hỗ trợ POST request']);
             exit;
         }

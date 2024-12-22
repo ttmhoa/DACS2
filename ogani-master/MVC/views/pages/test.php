@@ -1,538 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Details</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/ogani-master/public/css/coment.css" type="text/css">
-</head>
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>All departments</span>
-                    </div>
-                    <ul>
-                        <li><a href="#">Fresh Meat</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruit & Nut Gifts</a></li>
-                        <li><a href="#">Fresh Berries</a></li>
-                        <li><a href="#">Ocean Foods</a></li>
-                        <li><a href="#">Butter & Eggs</a></li>
-                        <li><a href="#">Fastfood</a></li>
-                        <li><a href="#">Fresh Onion</a></li>
-                        <li><a href="#">Papayaya & Crisps</a></li>
-                        <li><a href="#">Oatmeal</a></li>
-                        <li><a href="#">Fresh Bananas</a></li>
-                    </ul>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid my-2">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Discount Counpons</h1>
                 </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text" placeholder="What do yo u need?">
-                            <button type="submit" class="site-btn">SEARCH</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+65 11.188.888</h5>
-                            <span>support 24/7 time</span>
-                        </div>
-                    </div>
+                <div class="col-sm-6 text-right">
+                    <a href="" class="btn btn-primary">New Discount Coupon</a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Hero Section End -->
-
-<!-- Blog Details Hero Begin -->
-<section class="blog-details-hero set-bg" data-setbg="/ogani-master/img/blog/details/details-hero.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="blog__details__hero__text">
-                    <h2>The Moment You Need To Remove Garlic From The Menu</h2>
-                    <ul>
-                        <li>By Michael Scofield</li>
-                        <li>January 14, 2019</li>
-                        <li>8 Comments</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Blog Details Hero End -->
-
-<!-- Blog Details Section Begin -->
-<section class="blog-details spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-5 order-md-1 order-2">
-                <div class="blog__sidebar">
-                    <div class="blog__sidebar__search">
-                        <form action="#">
-                            <input type="text" placeholder="Search...">
-                            <button type="submit"><span class="icon_search"></span></button>
-                        </form>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h4>Categories</h4>
-                        <ul>
-                            <li><a href="#">All</a></li>
-                            <li><a href="#">Beauty (20)</a></li>
-                            <li><a href="#">Food (5)</a></li>
-                            <li><a href="#">Life Style (9)</a></li>
-                            <li><a href="#">Travel (10)</a></li>
-                        </ul>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h4>Recent News</h4>
-                        <div class="blog__sidebar__recent">
-                            <a href="#" class="blog__sidebar__recent__item">
-                                <div class="blog__sidebar__recent__item__pic">
-                                    <img src="/ogani-master/img/blog/sidebar/sr-1.jpg" alt="">
-                                </div>
-                                <div class="blog__sidebar__recent__item__text">
-                                    <h6>09 Kinds Of Vegetables<br /> Protect The Liver</h6>
-                                    <span>MAR 05, 2019</span>
-                                </div>
-                            </a>
-                            <a href="#" class="blog__sidebar__recent__item">
-                                <div class="blog__sidebar__recent__item__pic">
-                                    <img src="/ogani-master/img/blog/sidebar/sr-2.jpg" alt="">
-                                </div>
-                                <div class="blog__sidebar__recent__item__text">
-                                    <h6>Tips You To Balance<br /> Nutrition Meal Day</h6>
-                                    <span>MAR 05, 2019</span>
-                                </div>
-                            </a>
-                            <a href="#" class="blog__sidebar__recent__item">
-                                <div class="blog__sidebar__recent__item__pic">
-                                    <img src="/ogani-master/img/blog/sidebar/sr-3.jpg" alt="">
-                                </div>
-                                <div class="blog__sidebar__recent__item__text">
-                                    <h6>4 Principles Help You Lose <br />Weight With Vegetables</h6>
-                                    <span>MAR 05, 2019</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h4>Search By</h4>
-                        <div class="blog__sidebar__item__tags">
-                            <a href="#">Apple</a>
-                            <a href="#">Beauty</a>
-                            <a href="#">Vegetables</a>
-                            <a href="#">Fruit</a>
-                            <a href="#">Healthy Food</a>
-                            <a href="#">Lifestyle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8 col-md-7 order-md-1 order-1">
-                <div class="blog__details__text">
-                    <div style="max-height: 1000px; overflow-y: scroll; overflow-x: hidden; padding-right: 10px;">
-                        <?php echo ($data['contendblog']); ?>
-                    </div>
-                </div>
-                <div class="blog__details__content">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="blog__details__author">
-                                <div class="blog__details__author__pic">
-                                    <img src="/ogani-master/img/blog/details/details-author.jpg" alt="">
-                                </div>
-                                <div class="blog__details__author__text">
-                                    <h6>Michael Scofield</h6>
-                                    <span>Admin</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="blog__details__widget">
-                                <ul>
-                                    <li><span>Categories:</span> Food</li>
-                                    <li><span>Tags:</span> All, Trending, Cooking, Healthy Food, Life Style</li>
-                                </ul>
-                                <div class="blog__details__social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-envelope"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="content-item" id="comments">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <form>
-                        <h3 class="pull-left">New Comment</h3>
-                        <button type="submit" id="submitButton" class="btn btn-normal pull-right">Submit</button>
-                        <fieldset>
-                            <div class="row">
-                                <div class="col-sm-3 col-lg-2 hidden-xs">
-                                    <img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                                </div>
-                                <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                    <textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
-
-                    <h3>4 Comments</h3>
-                    <div id="commentListContainer" style="max-height: 800px; overflow-y: auto; overflow-x: hidden; padding-right: 10px; border: 1px solid #ddd; padding: 10px;">
-                        <div id="commentList">
-                            <!-- Bình luận mới sẽ được thêm vào đây bởi hàm addToComment -->
-                            <?php if (!empty($data['comments'])) : ?>
-                                <?php foreach ($data['comments'] as $comment): ?>
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object" src="<?php echo $comment['image']; ?>" alt="">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><?php echo $comment['fullname']; ?></h4>
-                                            <p><?php echo $comment['comment']; ?></p>
-                                            <ul class="list-unstyled list-inline media-detail pull-left">
-                                                <li><i class="fa fa-calendar"></i> <?php echo $comment['created_at']; ?></li>
-                                                <li class="like-button"
-                                                    data-comment-id="<?php echo $comment['id']; ?>"
-                                                    data-user-id="<?php echo $comment['user_id']; ?>"
-                                                    data-likes="<?php echo $comment['like']; ?>">
-                                                    <i class="fa fa-thumbs-up text-muted"></i>
-                                                    <span class="like-count"><?php echo $comment['like']; ?></span>
-                                                </li>
-                                            </ul>
-                                            <ul class="list-unstyled list-inline media-detail pull-right">
-                                                <li><a href="">Reply</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-
-
-
-                </div>
-            </div>
+        <!-- /.container-fluid -->
     </section>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    </script>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="container-fluid">
+            <div class="card">
+                <form action="" method="get">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <button type="button"
+                                class="btn btn-default btn-sm">Reset</button>
+                        </div>
+                        <div class="card-tools">
+                            <div class="input-group input-group" style="width: 250px;">
+                                <input value="" type="text" name="keyword"
+                                    class="form-control float-right" placeholder="Search">
 
-<!-- Blog Details Section End -->
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-<!-- Related Blog Section Begin -->
-<section class="related-blog spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title related-blog-title">
-                    <h2>Post You May Like</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="/ogani-master/img/blog/blog-1.jpg" alt="">
+
                     </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="/ogani-master/img/blog/blog-2.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="/ogani-master/img/blog/blog-3.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">Visit the clean farm in the US</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<script>
-        // Xử lý sự kiện khi nhấn nút "submit"
-        document.getElementById("submitButton").addEventListener('click', async function(event) {
-            event.preventDefault();
-            const pathArray = window.location.pathname.split('/');
-            const blog_id = pathArray[pathArray.length - 1]; // Lấy blog_id từ URL
-            let commentInput = document.getElementById('message').value;
-
-            try {
-                const response = await fetch('/blogDetailcontroller/comment', {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        comment: commentInput,
-                        blog_id: blog_id // Thêm blog_id vào dữ liệu gửi đi
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error("Lỗi kết nối tới server");
-                }
-
-                const data = await response.json();
-                if (data.success) {
-                    addToComment(data); // Gọi hàm thêm bình luận
-                    document.getElementById('message').value = ""; // Xóa nội dung sau khi bình luận
-                } else {
-                    console.error("Server response error:", data.message);
-                    alert("Lỗi khi gửi bình luận: " + data.message);
-                }
-                if (data.message === "User chưa đăng nhập") {
-                    window.location.href = "/ogani-master/MVC/views/login.php"; // Điều chỉnh đường dẫn nếu cần
-                }
-            } catch (error) {
-                console.error("Fetch error:", error);
-                alert('Lỗi khi gửi bình luận: ' + error.message);
-            }
-        });
-
-        // Hàm thêm bình luận mới vào danh sách
-        function addToComment(data) {
-            const commentList = document.getElementById('commentList');
-            if (!commentList) {
-                console.error('Không tìm thấy phần tử commentList.');
-                return;
-            }
-
-            // Tạo phần tử HTML cho bình luận mới
-            // Tạo phần tử HTML cho bình luận mới
-            const newComment = document.createElement('div');
-            newComment.className = 'media';
-            newComment.innerHTML = `
-    <a class="pull-left" href="#">
-        <img class="media-object" src="${data.image || 'default-avatar.jpg'}" alt="User Avatar">
-    </a>
-    <div class="media-body">
-        <h4 class="media-heading">${data.fullname || 'Anonymous'}</h4>
-        <p>${data.comment || ''}</p>
-        <ul class="list-unstyled list-inline media-detail pull-left">
-            <li><i class="fa fa-calendar"></i> ${data.created_at || new Date().toLocaleString()}</li>
-            <li class="like-button"
-                data-comment-id="${data.comment_id}"
-                data-likes="${data.like || 0}"
-                data-user-id="${data.user_id || 'default-user-id'}">
-                <i class="fa fa-thumbs-up text-muted"></i> 
-                <span class="like-count">${data.like || 0}</span>
-            </li>
-        </ul>
-        <ul class="list-unstyled list-inline media-detail pull-right">
-            <li><a href="#">Reply</a></li>
-        </ul>
-    </div>
-`;
-
-
-            // Thêm bình luận mới vào đầu danh sách
-            commentList.prepend(newComment);
-
-            // Gọi lại hàm gắn sự kiện like cho các bình luận
-            attachLikeEvents();
-        }
-
-        // Hàm gắn sự kiện like cho các nút like
-        function attachLikeEvents() {
-            document.querySelectorAll('.like-button').forEach(button => {
-                // Loại bỏ sự kiện cũ để tránh trùng lặp sự kiện
-                button.removeEventListener('click', likeButtonHandler);
-                button.addEventListener('click', likeButtonHandler);
-            });
-        }
-
-        // Hàm xử lý sự kiện khi nhấn like
-        async function likeButtonHandler(event) {
-            event.preventDefault();
-
-            const button = this; // Nút like hiện tại
-            const likeIcon = button.querySelector('.fa-thumbs-up'); // Biểu tượng like
-            const likeCountSpan = button.querySelector('.like-count'); // Phần tử hiển thị số lượt like
-            const commentId = button.getAttribute('data-comment-id');
-
-            if (!likeCountSpan) {
-                console.error("Không tìm thấy phần tử .like-count trong nút like.");
-                return; // Thoát nếu không tìm thấy phần tử
-            }
-
-            try {
-                const response = await fetch('/blogDetailcontroller/likeComment', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        comment_id: commentId
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error("Lỗi khi kết nối tới server");
-                }
-
-                const data = await response.json();
-                console.log("Server response: ", data);
-
-                if (data.success) {
-                    // Cập nhật giao diện nút like
-                    if (data.liked) {
-                        likeIcon.classList.add('text-success'); // Thêm màu xanh
-                        likeIcon.classList.remove('text-muted'); // Bỏ màu xám
-                    } else {
-                        likeIcon.classList.add('text-muted'); // Thêm màu xám
-                        likeIcon.classList.remove('text-success'); // Bỏ màu xanh
-                    }
-
-                    // Cập nhật số lượt like
-                    const newLikeCount = data.likeCount || 0; // Sử dụng giá trị từ server
-                    button.setAttribute('data-likes', newLikeCount); // Cập nhật `data-likes`
-                    likeCountSpan.textContent = newLikeCount; // Cập nhật hiển thị số lượt like
-                } else {
-                    console.error("Server response error:", data.message);
-                }
-                if (data.message === "Bạn cần đăng nhập để thực hiện hành động này.") {
-                    window.location.href = "/ogani-master/MVC/views/login.php"; // Điều chỉnh đường dẫn nếu cần
-                }
-
-            } catch (error) {
-                console.error("Fetch error:", error);
-                alert('Lỗi khi gửi yêu cầu: ' + error.message);
-            }
-        }
-
-        // Đảm bảo mã chỉ chạy khi DOM đã tải xong
-        document.addEventListener('DOMContentLoaded', function() {
-            attachLikeEvents(); // Gắn sự kiện like khi trang đã tải xong
-        });
-         async function likeButtonHandler(event) {
-            event.preventDefault();
-
-            const button = this; // Nút like hiện tại
-            const likeIcon = button.querySelector('.fa-thumbs-up'); // Biểu tượng like
-            const likeCountSpan = button.querySelector('.like-count'); // Phần tử hiển thị số lượt like
-            const commentId = button.getAttribute('data-comment-id');
-
-            if (!likeCountSpan) {
-                console.error("Không tìm thấy phần tử .like-count trong nút like.");
-                return; // Thoát nếu không tìm thấy phần tử
-            }
-
-            try {
-                const response = await fetch('/blogDetailcontroller/likeComment', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        comment_id: commentId
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error("Lỗi khi kết nối tới server");
-                }
-
-                const data = await response.json();
-                console.log("Server response: ", data);
-
-                if (data.success) {
-                    // Cập nhật giao diện nút like
-                    if (data.userLike === 1) { // Kiểm tra nếu trạng thái 'like' là 1
-    likeIcon.classList.add('text-success'); // Thêm màu xanh
-    likeIcon.classList.remove('text-muted'); // Bỏ màu xám
-} else {
-    likeIcon.classList.add('text-muted'); // Thêm màu xám
-    likeIcon.classList.remove('text-success'); // Bỏ màu xanh
-}
-
-
-                    // Cập nhật số lượt like
-                    const newLikeCount = data.likeCount || 0; // Sử dụng giá trị từ server
-                    button.setAttribute('data-likes', newLikeCount); // Cập nhật `data-likes`
-                    likeCountSpan.textContent = newLikeCount; // Cập nhật hiển thị số lượt like
-                } else {
-                    console.error("Server response error:", data.message);
-                }
-                if (data.message === "Bạn cần đăng nhập để thực hiện hành động này.") {
-                    window.location.href = "/ogani-master/MVC/views/login.php"; // Điều chỉnh đường dẫn nếu cần
-                }
-
-            } catch (error) {
-                console.error("Fetch error:", error);
-                alert('Lỗi khi gửi yêu cầu: ' + error.message);
-            }
-        }
-
-        // Đảm bảo mã chỉ chạy khi DOM đã tải xong
-        document.addEventListener('DOMContentLoaded', function() {
-            attachLikeEvents(); // Gắn sự kiện like khi trang đã tải xong
-        });
+                </form>
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th width="60">ID</th>
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th>Discount</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Discount</th>
+                                <th width="100">Status</th>
+                                <th width="100">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                <svg class="text-success-500 h-6 w-6 text-success"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
         
-    </script>
-
-</body>
-
-</html>
-<!-- Related Blog Section End -->
-<!-- Related Blog Section End -->
+                                                <svg class="text-danger h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                                    stroke="currentColor" aria-hidden="true">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z">
+                                                    </path>
+                                                </svg>
+                                            
+                                        </td>
+                                        <td>
+                                            <a href="">
+                                                <svg class="filament-link-icon w-4 h-4 mr-1"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                    fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                        d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
+                                                    </path>
+                                                </svg>
+                                            </a>
+                                            <a href="#" onclick="deleteCoupon"
+                                                class="text-danger w-4 h-4 mr-1">
+                                                <svg wire:loading.remove.delay="" wire:target=""
+                                                    class="filament-link-icon w-4 h-4 mr-1"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                    fill="currentColor" aria-hidden="true">
+                                                    <path ath fill-rule="evenodd"
+                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                            
+                
+                                <tr>
+                                    <td colspan="5">Recourds Not Found</td>
+                                </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer clearfix">
+                   
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+    </section>
+    <!-- /.content -->
